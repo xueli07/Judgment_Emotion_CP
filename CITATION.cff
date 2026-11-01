@@ -1,7 +1,8 @@
 cff-version: 1.2.0
-message: "If you use these data or code, please cite the associated article and this dataset."
-title: "Data and code for Continuous Judgment Weakens Categorical Perception of Facial Emotion"
+message: "If you use these data or code, please cite this data and code repository."
+title: "Data and code for Judgment Experience Abolishes Categorical Perception of Facial Expressions"
 type: dataset
+url: "https://github.com/xueli07/Judgment_Emotion_CP"
 authors:
   - family-names: "Li"
     given-names: "Xue"

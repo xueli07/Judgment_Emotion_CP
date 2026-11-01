@@ -1,0 +1,6 @@
+Parameter,Mean,95%_HDI_Lower,95%_HDI_Upper,P_value,P_fdr,Significant
+v_Intercept,0.6664529299057331,0.5868908190462653,0.7479059060483859,0.0,0.0,True
+v_Intercept_std,0.26594296674706835,0.22823863913669473,0.3050665534262205,0.0,0.0,True
+"v_C(judgment_condition, Treatment('categorical'))[T.continuous]",-0.010522871904057722,-0.12542955438615852,0.10488118987165264,0.8663,0.8663,False
+"v_C(pair_type, Treatment('between'))[T.within]",-0.11369317661639047,-0.16407874342406387,-0.06347108860553068,0.0,0.0,True
+"v_C(judgment_condition, Treatment('categorical'))[T.continuous]:C(pair_type, Treatment('between'))[T.within]",0.14711944047253547,0.07848276515081867,0.2211990799056998,0.0,0.0,True

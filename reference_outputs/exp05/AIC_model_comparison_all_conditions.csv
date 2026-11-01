@@ -1,0 +1,13 @@
+"condition","Model","AIC","RSS","n"
+"categorical_Informed","Logistic",-377.656458100481,2.20032616233714,100
+"categorical_Informed","Linear",-343.804274599147,3.08677680091862,100
+"categorical_Informed","Step",-329.289169827131,3.56897517129843,100
+"continuous_Informed","Logistic",-434.160538828586,1.25052666890593,100
+"continuous_Informed","Linear",-427.806004976108,1.33257096973277,100
+"continuous_Informed","Step",-383.099647254209,2.08375949851083,100
+"categorical_Uninformed","Logistic",-372.841411861302,2.30886501288517,100
+"categorical_Uninformed","Linear",-347.384666901003,2.97821318095893,100
+"categorical_Uninformed","Step",-327.650404330008,3.62794416708826,100
+"continuous_Uninformed","Logistic",-443.844176923114,1.13510869941453,100
+"continuous_Uninformed","Linear",-437.412968178627,1.21050848176819,100
+"continuous_Uninformed","Step",-396.189789921556,1.82809106178581,100

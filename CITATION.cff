@@ -1,0 +1,21 @@
+cff-version: 1.2.0
+message: "If you use these data or code, please cite the associated article and this dataset."
+title: "Data and code for Continuous Judgment Weakens Categorical Perception of Facial Emotion"
+type: dataset
+authors:
+  - family-names: "Li"
+    given-names: "Xue"
+  - family-names: "Xu"
+    given-names: "Zikai"
+  - family-names: "Guo"
+    given-names: "Ziyuan"
+  - family-names: "Wu"
+    given-names: "Shengrun"
+  - family-names: "Jiang"
+    given-names: "Menglin"
+  - family-names: "Peelen"
+    given-names: "Marius V."
+  - family-names: "Gao"
+    given-names: "Chuanji"
+license: "CC0-1.0"
+abstract: "De-identified behavioral data, analysis code, PsychoPy task programs, and documentation for six experiments on how continuous judgment affects categorical perception of facial emotion."

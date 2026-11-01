@@ -1,0 +1,66 @@
+participant,group,included_in_reported_analysis,exclusion_reason
+E01_001,categorical,True,Included in the reported analysis.
+E01_002,categorical,True,Included in the reported analysis.
+E01_003,categorical,True,Included in the reported analysis.
+E01_004,categorical,True,Included in the reported analysis.
+E01_005,categorical,True,Included in the reported analysis.
+E01_006,categorical,True,Included in the reported analysis.
+E01_007,categorical,True,Included in the reported analysis.
+E01_008,categorical,True,Included in the reported analysis.
+E01_009,categorical,True,Included in the reported analysis.
+E01_010,categorical,True,Included in the reported analysis.
+E01_011,categorical,True,Included in the reported analysis.
+E01_012,categorical,True,Included in the reported analysis.
+E01_013,categorical,True,Included in the reported analysis.
+E01_014,categorical,True,Included in the reported analysis.
+E01_015,categorical,True,Included in the reported analysis.
+E01_016,categorical,True,Included in the reported analysis.
+E01_017,categorical,True,Included in the reported analysis.
+E01_018,categorical,True,Included in the reported analysis.
+E01_019,categorical,True,Included in the reported analysis.
+E01_020,categorical,True,Included in the reported analysis.
+E01_021,categorical,True,Included in the reported analysis.
+E01_022,categorical,True,Included in the reported analysis.
+E01_023,categorical,True,Included in the reported analysis.
+E01_024,categorical,True,Included in the reported analysis.
+E01_025,categorical,True,Included in the reported analysis.
+E01_026,categorical,True,Included in the reported analysis.
+E01_027,categorical,True,Included in the reported analysis.
+E01_028,categorical,True,Included in the reported analysis.
+E01_029,categorical,True,Included in the reported analysis.
+E01_030,categorical,True,Included in the reported analysis.
+E01_031,continuous,True,Included in the reported analysis.
+E01_032,continuous,True,Included in the reported analysis.
+E01_033,continuous,True,Included in the reported analysis.
+E01_034,continuous,True,Included in the reported analysis.
+E01_035,continuous,True,Included in the reported analysis.
+E01_036,continuous,True,Included in the reported analysis.
+E01_037,continuous,True,Included in the reported analysis.
+E01_038,continuous,True,Included in the reported analysis.
+E01_039,continuous,True,Included in the reported analysis.
+E01_040,continuous,True,Included in the reported analysis.
+E01_041,continuous,True,Included in the reported analysis.
+E01_042,continuous,True,Included in the reported analysis.
+E01_043,continuous,True,Included in the reported analysis.
+E01_044,continuous,True,Included in the reported analysis.
+E01_045,continuous,True,Included in the reported analysis.
+E01_046,continuous,True,Included in the reported analysis.
+E01_047,continuous,True,Included in the reported analysis.
+E01_048,continuous,True,Included in the reported analysis.
+E01_049,continuous,True,Included in the reported analysis.
+E01_050,continuous,True,Included in the reported analysis.
+E01_051,continuous,True,Included in the reported analysis.
+E01_052,continuous,True,Included in the reported analysis.
+E01_053,continuous,True,Included in the reported analysis.
+E01_054,continuous,True,Included in the reported analysis.
+E01_055,continuous,True,Included in the reported analysis.
+E01_056,continuous,True,Included in the reported analysis.
+E01_057,continuous,True,Included in the reported analysis.
+E01_058,continuous,True,Included in the reported analysis.
+E01_059,continuous,True,Included in the reported analysis.
+E01_060,continuous,True,Included in the reported analysis.
+E01_EXCLUDED_001,continuum,False,Extreme fitted category boundary (PSE = 70.94); within-category pairs were available only for the happy category.
+E01_EXCLUDED_002,category,False,Extreme fitted category boundary (PSE = 21.06); within-category pairs were available only for the sad category.
+E01_EXCLUDED_003,category,False,Extreme fitted category boundary (PSE = 29.33); within-category pairs were available only for the sad category.
+E01_EXCLUDED_004,category,False,Extreme fitted category boundary (PSE = 18.8); within-category pairs were available only for the sad category.
+E01_EXCLUDED_005,category,False,Extreme fitted category boundary (PSE = 23.7); within-category pairs were available only for the sad category.

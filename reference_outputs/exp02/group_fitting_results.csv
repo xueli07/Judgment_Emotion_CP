@@ -1,0 +1,2 @@
+judgment_condition,best_model_type,best_aic,logistic_aic,linear_aic,step_aic,logistic_converged,linear_converged,step_converged,boundary,slope,r_squared,p1,p2
+continuous,logistic,-82.05111089515033,-82.05111089515033,-70.20631877199021,-46.44589133374549,TRUE,TRUE,TRUE,49.097764036096656,0.3646974769762419,0.9931865165301365,0.03290431796727771,0.3646974769762419

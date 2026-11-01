@@ -1,0 +1,10 @@
+model_name,dic,delta_dic
+M4_v_judgment_x_pair,53055.39043,0.0
+M5_a_judgment_x_pair,53081.608212,26.217782
+M7_a_interaction_v_train,53103.166036,47.775606
+M8_av_judgment_x_pair,53119.930037,64.539608
+M6_v_interaction_a_train,53125.107968,69.717538
+M0_baseline,53129.081736,73.691306
+M1_v_train_main,53133.231604,77.841174
+M3_av_train_main,53142.071521,86.681092
+M2_a_train_main,53145.07408,89.683651

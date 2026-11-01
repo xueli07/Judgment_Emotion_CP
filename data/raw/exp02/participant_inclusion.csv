@@ -1,0 +1,67 @@
+participant,group,included_in_reported_analysis,exclusion_reason
+E02_001,continuous,True,Included in the reported analysis.
+E02_002,continuous,True,Included in the reported analysis.
+E02_003,continuous,True,Included in the reported analysis.
+E02_004,continuous,True,Included in the reported analysis.
+E02_005,continuous,True,Included in the reported analysis.
+E02_006,continuous,True,Included in the reported analysis.
+E02_007,continuous,True,Included in the reported analysis.
+E02_008,continuous,True,Included in the reported analysis.
+E02_009,continuous,True,Included in the reported analysis.
+E02_010,continuous,True,Included in the reported analysis.
+E02_011,continuous,True,Included in the reported analysis.
+E02_012,continuous,True,Included in the reported analysis.
+E02_013,continuous,True,Included in the reported analysis.
+E02_014,continuous,True,Included in the reported analysis.
+E02_015,continuous,True,Included in the reported analysis.
+E02_016,continuous,True,Included in the reported analysis.
+E02_017,continuous,True,Included in the reported analysis.
+E02_018,continuous,True,Included in the reported analysis.
+E02_019,continuous,True,Included in the reported analysis.
+E02_020,continuous,True,Included in the reported analysis.
+E02_021,continuous,True,Included in the reported analysis.
+E02_022,continuous,True,Included in the reported analysis.
+E02_023,continuous,True,Included in the reported analysis.
+E02_024,continuous,True,Included in the reported analysis.
+E02_025,continuous,True,Included in the reported analysis.
+E02_026,continuous,True,Included in the reported analysis.
+E02_027,continuous,True,Included in the reported analysis.
+E02_028,continuous,True,Included in the reported analysis.
+E02_029,continuous,True,Included in the reported analysis.
+E02_030,continuous,True,Included in the reported analysis.
+E02_031,control,True,Included in the reported analysis.
+E02_032,control,True,Included in the reported analysis.
+E02_033,control,True,Included in the reported analysis.
+E02_034,control,True,Included in the reported analysis.
+E02_035,control,True,Included in the reported analysis.
+E02_036,control,True,Included in the reported analysis.
+E02_037,control,True,Included in the reported analysis.
+E02_038,control,True,Included in the reported analysis.
+E02_039,control,True,Included in the reported analysis.
+E02_040,control,True,Included in the reported analysis.
+E02_041,control,True,Included in the reported analysis.
+E02_042,control,True,Included in the reported analysis.
+E02_043,control,True,Included in the reported analysis.
+E02_044,control,True,Included in the reported analysis.
+E02_045,control,True,Included in the reported analysis.
+E02_046,control,True,Included in the reported analysis.
+E02_047,control,True,Included in the reported analysis.
+E02_048,control,True,Included in the reported analysis.
+E02_049,control,True,Included in the reported analysis.
+E02_050,control,True,Included in the reported analysis.
+E02_051,control,True,Included in the reported analysis.
+E02_052,control,True,Included in the reported analysis.
+E02_053,control,True,Included in the reported analysis.
+E02_054,control,True,Included in the reported analysis.
+E02_055,control,True,Included in the reported analysis.
+E02_056,control,True,Included in the reported analysis.
+E02_057,control,True,Included in the reported analysis.
+E02_058,control,True,Included in the reported analysis.
+E02_059,control,True,Included in the reported analysis.
+E02_060,control,True,Included in the reported analysis.
+E02_EXCLUDED_001,continuum,False,The session was interrupted after the training task; the XAB task was not completed.
+E02_EXCLUDED_002,continuum,False,The participant fell asleep during the training task.
+E02_EXCLUDED_003,continuum,False,The participant did not receive the required experimenter-delivered XAB instructions.
+E02_EXCLUDED_004,control,False,The XAB instructions were explained incorrectly.
+E02_EXCLUDED_005,control,False,A laboratory visit disrupted XAB discrimination and the participant did not receive the required experimenter-delivered XAB instructions.
+E02_EXCLUDED_006,control,False,The participant did not receive the required experimenter-delivered XAB instructions.

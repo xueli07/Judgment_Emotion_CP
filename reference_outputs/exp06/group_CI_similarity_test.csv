@@ -1,0 +1,2 @@
+comparison,estimate,statistic,df,p_value,conf_low,conf_high,method
+categorical_vs_continuous_group_CI,0.677097029282242,471.09023008732686,262142,0,0.6750185970820565,0.6791647148835382,Pearson's product-moment correlation

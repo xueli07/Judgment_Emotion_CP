@@ -1,0 +1,236 @@
+column,definition,units_or_codes,generated_by
+block.started,Component or routine onset time relative to experiment start.,seconds,PsychoPy
+block.stopped,Component or routine offset time relative to experiment start.,seconds,PsychoPy
+block_key_resp.duration,Duration recorded by the named component.,seconds,PsychoPy
+block_key_resp.keys,Key or key sequence recorded by the named keyboard component.,key label,PsychoPy
+block_key_resp.rt,Response time recorded by the named component.,seconds,PsychoPy
+block_key_resp.started,Component or routine onset time relative to experiment start.,seconds,PsychoPy
+block_text.started,Component or routine onset time relative to experiment start.,seconds,PsychoPy
+blockID,PsychoPy Builder variable or condition-file field; interpret with the corresponding formal program and condition workbook.,task-specific,conditions file / PsychoPy
+expName,Experiment/program name recorded by PsychoPy.,text,PsychoPy
+face_inv,Stimulus filename/path label or stimulus-related Builder field; image file not distributed.,text or task-specific,conditions file / PsychoPy
+face_ori,Stimulus filename/path label or stimulus-related Builder field; image file not distributed.,text or task-specific,conditions file / PsychoPy
+fixation.started,Component or routine onset time relative to experiment start.,seconds,PsychoPy
+fixation.stopped,Component or routine offset time relative to experiment start.,seconds,PsychoPy
+fixation_text.started,Component or routine onset time relative to experiment start.,seconds,PsychoPy
+fixation_text.stopped,Component or routine offset time relative to experiment start.,seconds,PsychoPy
+formal__categorization_image_left.started,Component or routine onset time relative to experiment start.,seconds,PsychoPy
+formal__categorization_image_right.started,Component or routine onset time relative to experiment start.,seconds,PsychoPy
+formal_categorization_end.started,Component or routine onset time relative to experiment start.,seconds,PsychoPy
+formal_categorization_end.stopped,Component or routine offset time relative to experiment start.,seconds,PsychoPy
+formal_categorization_end_key_resp.duration,Duration recorded by the named component.,seconds,PsychoPy
+formal_categorization_end_key_resp.keys,Key or key sequence recorded by the named keyboard component.,key label,PsychoPy
+formal_categorization_end_key_resp.rt,Response time recorded by the named component.,seconds,PsychoPy
+formal_categorization_end_key_resp.started,Component or routine onset time relative to experiment start.,seconds,PsychoPy
+formal_categorization_end_text.started,Component or routine onset time relative to experiment start.,seconds,PsychoPy
+formal_categorization_rating,PsychoPy Builder variable or condition-file field; interpret with the corresponding formal program and condition workbook.,task-specific,conditions file / PsychoPy
+formal_categorization_rating_marker.started,Component or routine onset time relative to experiment start.,seconds,PsychoPy
+formal_categorization_rating_mouse.clicked_name,Name of the Builder component clicked by the participant.,component label,PsychoPy
+formal_categorization_rating_mouse.leftButton,Mouse-button state recorded by the named component.,0/1,PsychoPy
+formal_categorization_rating_mouse.midButton,Mouse-button state recorded by the named component.,0/1,PsychoPy
+formal_categorization_rating_mouse.rightButton,Mouse-button state recorded by the named component.,0/1,PsychoPy
+formal_categorization_rating_mouse.started,Component or routine onset time relative to experiment start.,seconds,PsychoPy
+formal_categorization_rating_mouse.time,Mouse-event time recorded by the named component.,seconds,PsychoPy
+formal_categorization_rating_mouse.x,Mouse coordinate recorded by the named component.,PsychoPy coordinate units,PsychoPy
+formal_categorization_rating_mouse.y,Mouse coordinate recorded by the named component.,PsychoPy coordinate units,PsychoPy
+formal_categorization_rating_rt,Response time recorded by the named component.,seconds,PsychoPy
+formal_categorization_rating_slider.response,Response recorded by the named response or slider component.,task-specific,PsychoPy
+formal_categorization_rating_slider.rt,Response time recorded by the named component.,seconds,PsychoPy
+formal_categorization_rating_slider.started,Component or routine onset time relative to experiment start.,seconds,PsychoPy
+formal_categorization_rating_text.started,Component or routine onset time relative to experiment start.,seconds,PsychoPy
+formal_categorization_rating_trials_loop.block_key_resp.duration,Duration recorded by the named component.,seconds,PsychoPy
+formal_categorization_rating_trials_loop.block_key_resp.keys,Key or key sequence recorded by the named keyboard component.,key label,PsychoPy
+formal_categorization_rating_trials_loop.block_key_resp.rt,Response time recorded by the named component.,seconds,PsychoPy
+formal_categorization_rating_trials_loop.formal_categorization_rating_mouse.clicked_name,Name of the Builder component clicked by the participant.,component label,PsychoPy
+formal_categorization_rating_trials_loop.formal_categorization_rating_mouse.leftButton,Mouse-button state recorded by the named component.,0/1,PsychoPy
+formal_categorization_rating_trials_loop.formal_categorization_rating_mouse.midButton,Mouse-button state recorded by the named component.,0/1,PsychoPy
+formal_categorization_rating_trials_loop.formal_categorization_rating_mouse.rightButton,Mouse-button state recorded by the named component.,0/1,PsychoPy
+formal_categorization_rating_trials_loop.formal_categorization_rating_mouse.time,Mouse-event time recorded by the named component.,seconds,PsychoPy
+formal_categorization_rating_trials_loop.formal_categorization_rating_mouse.x,Mouse coordinate recorded by the named component.,PsychoPy coordinate units,PsychoPy
+formal_categorization_rating_trials_loop.formal_categorization_rating_mouse.y,Mouse coordinate recorded by the named component.,PsychoPy coordinate units,PsychoPy
+formal_categorization_rating_trials_loop.formal_categorization_rating_slider.response,Response recorded by the named response or slider component.,task-specific,PsychoPy
+formal_categorization_rating_trials_loop.formal_categorization_rating_slider.rt,Response time recorded by the named component.,seconds,PsychoPy
+formal_categorization_rating_trials_loop.rest_key_resp.duration,Duration recorded by the named component.,seconds,PsychoPy
+formal_categorization_rating_trials_loop.rest_key_resp.keys,Key or key sequence recorded by the named keyboard component.,key label,PsychoPy
+formal_categorization_rating_trials_loop.rest_key_resp.rt,Response time recorded by the named component.,seconds,PsychoPy
+formal_categorization_rating_trials_loop.thisIndex,Index of the selected conditions-file row in the named loop.,integer,PsychoPy
+formal_categorization_rating_trials_loop.thisN,Zero-based sequential iteration index in the named loop.,integer,PsychoPy
+formal_categorization_rating_trials_loop.thisRepN,Zero-based repetition index in the named loop.,integer,PsychoPy
+formal_categorization_rating_trials_loop.thisTrialN,Zero-based trial index within the current repetition.,integer,PsychoPy
+formal_categorization_rect.started,Component or routine onset time relative to experiment start.,seconds,PsychoPy
+formal_categorization_rect.stopped,Component or routine offset time relative to experiment start.,seconds,PsychoPy
+formal_continuous_end.started,Component or routine onset time relative to experiment start.,seconds,PsychoPy
+formal_continuous_end.stopped,Component or routine offset time relative to experiment start.,seconds,PsychoPy
+formal_continuous_end_key_resp.duration,Duration recorded by the named component.,seconds,PsychoPy
+formal_continuous_end_key_resp.keys,Key or key sequence recorded by the named keyboard component.,key label,PsychoPy
+formal_continuous_end_key_resp.rt,Response time recorded by the named component.,seconds,PsychoPy
+formal_continuous_end_key_resp.started,Component or routine onset time relative to experiment start.,seconds,PsychoPy
+formal_continuous_end_text.started,Component or routine onset time relative to experiment start.,seconds,PsychoPy
+formal_continuous_image_left.started,Component or routine onset time relative to experiment start.,seconds,PsychoPy
+formal_continuous_image_right.started,Component or routine onset time relative to experiment start.,seconds,PsychoPy
+formal_continuous_rating,PsychoPy Builder variable or condition-file field; interpret with the corresponding formal program and condition workbook.,task-specific,conditions file / PsychoPy
+formal_continuous_rating_marker.started,Component or routine onset time relative to experiment start.,seconds,PsychoPy
+formal_continuous_rating_mouse.clicked_name,Name of the Builder component clicked by the participant.,component label,PsychoPy
+formal_continuous_rating_mouse.leftButton,Mouse-button state recorded by the named component.,0/1,PsychoPy
+formal_continuous_rating_mouse.midButton,Mouse-button state recorded by the named component.,0/1,PsychoPy
+formal_continuous_rating_mouse.rightButton,Mouse-button state recorded by the named component.,0/1,PsychoPy
+formal_continuous_rating_mouse.started,Component or routine onset time relative to experiment start.,seconds,PsychoPy
+formal_continuous_rating_mouse.time,Mouse-event time recorded by the named component.,seconds,PsychoPy
+formal_continuous_rating_mouse.x,Mouse coordinate recorded by the named component.,PsychoPy coordinate units,PsychoPy
+formal_continuous_rating_mouse.y,Mouse coordinate recorded by the named component.,PsychoPy coordinate units,PsychoPy
+formal_continuous_rating_rt,Response time recorded by the named component.,seconds,PsychoPy
+formal_continuous_rating_slider.response,Response recorded by the named response or slider component.,task-specific,PsychoPy
+formal_continuous_rating_slider.rt,Response time recorded by the named component.,seconds,PsychoPy
+formal_continuous_rating_slider.started,Component or routine onset time relative to experiment start.,seconds,PsychoPy
+formal_continuous_rating_text.started,Component or routine onset time relative to experiment start.,seconds,PsychoPy
+formal_continuous_rating_trials_loop.block_key_resp.duration,Duration recorded by the named component.,seconds,PsychoPy
+formal_continuous_rating_trials_loop.block_key_resp.keys,Key or key sequence recorded by the named keyboard component.,key label,PsychoPy
+formal_continuous_rating_trials_loop.block_key_resp.rt,Response time recorded by the named component.,seconds,PsychoPy
+formal_continuous_rating_trials_loop.formal_continuous_rating_mouse.clicked_name,Name of the Builder component clicked by the participant.,component label,PsychoPy
+formal_continuous_rating_trials_loop.formal_continuous_rating_mouse.leftButton,Mouse-button state recorded by the named component.,0/1,PsychoPy
+formal_continuous_rating_trials_loop.formal_continuous_rating_mouse.midButton,Mouse-button state recorded by the named component.,0/1,PsychoPy
+formal_continuous_rating_trials_loop.formal_continuous_rating_mouse.rightButton,Mouse-button state recorded by the named component.,0/1,PsychoPy
+formal_continuous_rating_trials_loop.formal_continuous_rating_mouse.time,Mouse-event time recorded by the named component.,seconds,PsychoPy
+formal_continuous_rating_trials_loop.formal_continuous_rating_mouse.x,Mouse coordinate recorded by the named component.,PsychoPy coordinate units,PsychoPy
+formal_continuous_rating_trials_loop.formal_continuous_rating_mouse.y,Mouse coordinate recorded by the named component.,PsychoPy coordinate units,PsychoPy
+formal_continuous_rating_trials_loop.formal_continuous_rating_slider.response,Response recorded by the named response or slider component.,task-specific,PsychoPy
+formal_continuous_rating_trials_loop.formal_continuous_rating_slider.rt,Response time recorded by the named component.,seconds,PsychoPy
+formal_continuous_rating_trials_loop.rest_key_resp.duration,Duration recorded by the named component.,seconds,PsychoPy
+formal_continuous_rating_trials_loop.rest_key_resp.keys,Key or key sequence recorded by the named keyboard component.,key label,PsychoPy
+formal_continuous_rating_trials_loop.rest_key_resp.rt,Response time recorded by the named component.,seconds,PsychoPy
+formal_continuous_rating_trials_loop.thisIndex,Index of the selected conditions-file row in the named loop.,integer,PsychoPy
+formal_continuous_rating_trials_loop.thisN,Zero-based sequential iteration index in the named loop.,integer,PsychoPy
+formal_continuous_rating_trials_loop.thisRepN,Zero-based repetition index in the named loop.,integer,PsychoPy
+formal_continuous_rating_trials_loop.thisTrialN,Zero-based trial index within the current repetition.,integer,PsychoPy
+formal_continuous_rect.started,Component or routine onset time relative to experiment start.,seconds,PsychoPy
+formal_continuous_rect.stopped,Component or routine offset time relative to experiment start.,seconds,PsychoPy
+frameRate,Estimated display frame rate.,frames per second,PsychoPy
+instruction_all.started,Component or routine onset time relative to experiment start.,seconds,PsychoPy
+instruction_all.stopped,Component or routine offset time relative to experiment start.,seconds,PsychoPy
+instruction_all_key_resp.duration,Duration recorded by the named component.,seconds,PsychoPy
+instruction_all_key_resp.keys,Key or key sequence recorded by the named keyboard component.,key label,PsychoPy
+instruction_all_key_resp.rt,Response time recorded by the named component.,seconds,PsychoPy
+instruction_all_key_resp.started,Component or routine onset time relative to experiment start.,seconds,PsychoPy
+instruction_exp.started,Component or routine onset time relative to experiment start.,seconds,PsychoPy
+instruction_exp.stopped,Component or routine offset time relative to experiment start.,seconds,PsychoPy
+instruction_exp_key_resp.duration,Duration recorded by the named component.,seconds,PsychoPy
+instruction_exp_key_resp.keys,Key or key sequence recorded by the named keyboard component.,key label,PsychoPy
+instruction_exp_key_resp.rt,Response time recorded by the named component.,seconds,PsychoPy
+instruction_exp_key_resp.started,Component or routine onset time relative to experiment start.,seconds,PsychoPy
+instruction_formal.started,Component or routine onset time relative to experiment start.,seconds,PsychoPy
+instruction_formal.stopped,Component or routine offset time relative to experiment start.,seconds,PsychoPy
+instruction_formal_key_resp.duration,Duration recorded by the named component.,seconds,PsychoPy
+instruction_formal_key_resp.keys,Key or key sequence recorded by the named keyboard component.,key label,PsychoPy
+instruction_formal_key_resp.rt,Response time recorded by the named component.,seconds,PsychoPy
+instruction_formal_key_resp.started,Component or routine onset time relative to experiment start.,seconds,PsychoPy
+instruction_practice.started,Component or routine onset time relative to experiment start.,seconds,PsychoPy
+instruction_practice.stopped,Component or routine offset time relative to experiment start.,seconds,PsychoPy
+instruction_practice_key_resp.duration,Duration recorded by the named component.,seconds,PsychoPy
+instruction_practice_key_resp.keys,Key or key sequence recorded by the named keyboard component.,key label,PsychoPy
+instruction_practice_key_resp.rt,Response time recorded by the named component.,seconds,PsychoPy
+instruction_practice_key_resp.started,Component or routine onset time relative to experiment start.,seconds,PsychoPy
+instruction_video.started,Component or routine onset time relative to experiment start.,seconds,PsychoPy
+instruction_video.stopped,Component or routine offset time relative to experiment start.,seconds,PsychoPy
+left_image,Stimulus filename/path label or stimulus-related Builder field; image file not distributed.,text or task-specific,conditions file / PsychoPy
+num,PsychoPy Builder variable or condition-file field; interpret with the corresponding formal program and condition workbook.,task-specific,conditions file / PsychoPy
+participant,Public de-identified participant identifier assigned for this repository.,E##_## or E##_EXCLUDED_###,public-release transformation
+practice_block.started,Component or routine onset time relative to experiment start.,seconds,PsychoPy
+practice_block.stopped,Component or routine offset time relative to experiment start.,seconds,PsychoPy
+practice_block_key_resp.duration,Duration recorded by the named component.,seconds,PsychoPy
+practice_block_key_resp.keys,Key or key sequence recorded by the named keyboard component.,key label,PsychoPy
+practice_block_key_resp.rt,Response time recorded by the named component.,seconds,PsychoPy
+practice_block_key_resp.started,Component or routine onset time relative to experiment start.,seconds,PsychoPy
+practice_block_text.started,Component or routine onset time relative to experiment start.,seconds,PsychoPy
+practice_categorization_image_left.started,Component or routine onset time relative to experiment start.,seconds,PsychoPy
+practice_categorization_image_right.started,Component or routine onset time relative to experiment start.,seconds,PsychoPy
+practice_categorization_rating,PsychoPy Builder variable or condition-file field; interpret with the corresponding formal program and condition workbook.,task-specific,conditions file / PsychoPy
+practice_categorization_rating_marker.started,Component or routine onset time relative to experiment start.,seconds,PsychoPy
+practice_categorization_rating_mouse.clicked_name,Name of the Builder component clicked by the participant.,component label,PsychoPy
+practice_categorization_rating_mouse.leftButton,Mouse-button state recorded by the named component.,0/1,PsychoPy
+practice_categorization_rating_mouse.midButton,Mouse-button state recorded by the named component.,0/1,PsychoPy
+practice_categorization_rating_mouse.rightButton,Mouse-button state recorded by the named component.,0/1,PsychoPy
+practice_categorization_rating_mouse.started,Component or routine onset time relative to experiment start.,seconds,PsychoPy
+practice_categorization_rating_mouse.time,Mouse-event time recorded by the named component.,seconds,PsychoPy
+practice_categorization_rating_mouse.x,Mouse coordinate recorded by the named component.,PsychoPy coordinate units,PsychoPy
+practice_categorization_rating_mouse.y,Mouse coordinate recorded by the named component.,PsychoPy coordinate units,PsychoPy
+practice_categorization_rating_rt,Response time recorded by the named component.,seconds,PsychoPy
+practice_categorization_rating_slider.response,Response recorded by the named response or slider component.,task-specific,PsychoPy
+practice_categorization_rating_slider.rt,Response time recorded by the named component.,seconds,PsychoPy
+practice_categorization_rating_slider.started,Component or routine onset time relative to experiment start.,seconds,PsychoPy
+practice_categorization_rating_text.started,Component or routine onset time relative to experiment start.,seconds,PsychoPy
+practice_categorization_rect.started,Component or routine onset time relative to experiment start.,seconds,PsychoPy
+practice_categorization_rect.stopped,Component or routine offset time relative to experiment start.,seconds,PsychoPy
+practice_continuous_image_left.started,Component or routine onset time relative to experiment start.,seconds,PsychoPy
+practice_continuous_image_right.started,Component or routine onset time relative to experiment start.,seconds,PsychoPy
+practice_continuous_rating,PsychoPy Builder variable or condition-file field; interpret with the corresponding formal program and condition workbook.,task-specific,conditions file / PsychoPy
+practice_continuous_rating_marker.started,Component or routine onset time relative to experiment start.,seconds,PsychoPy
+practice_continuous_rating_mouse.clicked_name,Name of the Builder component clicked by the participant.,component label,PsychoPy
+practice_continuous_rating_mouse.leftButton,Mouse-button state recorded by the named component.,0/1,PsychoPy
+practice_continuous_rating_mouse.midButton,Mouse-button state recorded by the named component.,0/1,PsychoPy
+practice_continuous_rating_mouse.rightButton,Mouse-button state recorded by the named component.,0/1,PsychoPy
+practice_continuous_rating_mouse.started,Component or routine onset time relative to experiment start.,seconds,PsychoPy
+practice_continuous_rating_mouse.time,Mouse-event time recorded by the named component.,seconds,PsychoPy
+practice_continuous_rating_mouse.x,Mouse coordinate recorded by the named component.,PsychoPy coordinate units,PsychoPy
+practice_continuous_rating_mouse.y,Mouse coordinate recorded by the named component.,PsychoPy coordinate units,PsychoPy
+practice_continuous_rating_rt,Response time recorded by the named component.,seconds,PsychoPy
+practice_continuous_rating_slider.response,Response recorded by the named response or slider component.,task-specific,PsychoPy
+practice_continuous_rating_slider.rt,Response time recorded by the named component.,seconds,PsychoPy
+practice_continuous_rating_slider.started,Component or routine onset time relative to experiment start.,seconds,PsychoPy
+practice_continuous_rating_text.started,Component or routine onset time relative to experiment start.,seconds,PsychoPy
+practice_continuous_rect.started,Component or routine onset time relative to experiment start.,seconds,PsychoPy
+practice_continuous_rect.stopped,Component or routine offset time relative to experiment start.,seconds,PsychoPy
+practice_loop.practice_continuous_rating_mouse.clicked_name,Name of the Builder component clicked by the participant.,component label,PsychoPy
+practice_loop.practice_continuous_rating_mouse.leftButton,Mouse-button state recorded by the named component.,0/1,PsychoPy
+practice_loop.practice_continuous_rating_mouse.midButton,Mouse-button state recorded by the named component.,0/1,PsychoPy
+practice_loop.practice_continuous_rating_mouse.rightButton,Mouse-button state recorded by the named component.,0/1,PsychoPy
+practice_loop.practice_continuous_rating_mouse.time,Mouse-event time recorded by the named component.,seconds,PsychoPy
+practice_loop.practice_continuous_rating_mouse.x,Mouse coordinate recorded by the named component.,PsychoPy coordinate units,PsychoPy
+practice_loop.practice_continuous_rating_mouse.y,Mouse coordinate recorded by the named component.,PsychoPy coordinate units,PsychoPy
+practice_loop.practice_continuous_rating_slider.response,Response recorded by the named response or slider component.,task-specific,PsychoPy
+practice_loop.practice_continuous_rating_slider.rt,Response time recorded by the named component.,seconds,PsychoPy
+practice_loop.practice_rest_key_resp.duration,Duration recorded by the named component.,seconds,PsychoPy
+practice_loop.practice_rest_key_resp.keys,Key or key sequence recorded by the named keyboard component.,key label,PsychoPy
+practice_loop.practice_rest_key_resp.rt,Response time recorded by the named component.,seconds,PsychoPy
+practice_loop.thisIndex,Index of the selected conditions-file row in the named loop.,integer,PsychoPy
+practice_loop.thisN,Zero-based sequential iteration index in the named loop.,integer,PsychoPy
+practice_loop.thisRepN,Zero-based repetition index in the named loop.,integer,PsychoPy
+practice_loop.thisTrialN,Zero-based trial index within the current repetition.,integer,PsychoPy
+practice_rest.started,Component or routine onset time relative to experiment start.,seconds,PsychoPy
+practice_rest.stopped,Component or routine offset time relative to experiment start.,seconds,PsychoPy
+practice_rest_key_resp.duration,Duration recorded by the named component.,seconds,PsychoPy
+practice_rest_key_resp.keys,Key or key sequence recorded by the named keyboard component.,key label,PsychoPy
+practice_rest_key_resp.rt,Response time recorded by the named component.,seconds,PsychoPy
+practice_rest_key_resp.started,Component or routine onset time relative to experiment start.,seconds,PsychoPy
+practice_rest_text.started,Component or routine onset time relative to experiment start.,seconds,PsychoPy
+psychopyVersion,PsychoPy version used for data collection.,version string,PsychoPy
+Raw_chosen,PsychoPy Builder variable or condition-file field; interpret with the corresponding formal program and condition workbook.,task-specific,conditions file / PsychoPy
+rest.started,Component or routine onset time relative to experiment start.,seconds,PsychoPy
+rest.stopped,Component or routine offset time relative to experiment start.,seconds,PsychoPy
+rest_key_resp.duration,Duration recorded by the named component.,seconds,PsychoPy
+rest_key_resp.keys,Key or key sequence recorded by the named keyboard component.,key label,PsychoPy
+rest_key_resp.rt,Response time recorded by the named component.,seconds,PsychoPy
+rest_key_resp.started,Component or routine onset time relative to experiment start.,seconds,PsychoPy
+rest_text.started,Component or routine onset time relative to experiment start.,seconds,PsychoPy
+right_image,Stimulus filename/path label or stimulus-related Builder field; image file not distributed.,text or task-specific,conditions file / PsychoPy
+side_chosen,PsychoPy Builder variable or condition-file field; interpret with the corresponding formal program and condition workbook.,task-specific,conditions file / PsychoPy
+thisN,PsychoPy Builder variable or condition-file field; interpret with the corresponding formal program and condition workbook.,task-specific,conditions file / PsychoPy
+thisRepN,PsychoPy Builder variable or condition-file field; interpret with the corresponding formal program and condition workbook.,task-specific,conditions file / PsychoPy
+thisRow.t,PsychoPy Builder variable or condition-file field; interpret with the corresponding formal program and condition workbook.,task-specific,conditions file / PsychoPy
+thisTrialN,PsychoPy Builder variable or condition-file field; interpret with the corresponding formal program and condition workbook.,task-specific,conditions file / PsychoPy
+trialID,PsychoPy Builder variable or condition-file field; interpret with the corresponding formal program and condition workbook.,task-specific,conditions file / PsychoPy
+trials.practice_categorization_rating_mouse.clicked_name,Name of the Builder component clicked by the participant.,component label,PsychoPy
+trials.practice_categorization_rating_mouse.leftButton,Mouse-button state recorded by the named component.,0/1,PsychoPy
+trials.practice_categorization_rating_mouse.midButton,Mouse-button state recorded by the named component.,0/1,PsychoPy
+trials.practice_categorization_rating_mouse.rightButton,Mouse-button state recorded by the named component.,0/1,PsychoPy
+trials.practice_categorization_rating_mouse.time,Mouse-event time recorded by the named component.,seconds,PsychoPy
+trials.practice_categorization_rating_mouse.x,Mouse coordinate recorded by the named component.,PsychoPy coordinate units,PsychoPy
+trials.practice_categorization_rating_mouse.y,Mouse coordinate recorded by the named component.,PsychoPy coordinate units,PsychoPy
+trials.practice_categorization_rating_slider.response,Response recorded by the named response or slider component.,task-specific,PsychoPy
+trials.practice_categorization_rating_slider.rt,Response time recorded by the named component.,seconds,PsychoPy
+trials.practice_rest_key_resp.duration,Duration recorded by the named component.,seconds,PsychoPy
+trials.practice_rest_key_resp.keys,Key or key sequence recorded by the named keyboard component.,key label,PsychoPy
+trials.practice_rest_key_resp.rt,Response time recorded by the named component.,seconds,PsychoPy
+trials.thisIndex,Index of the selected conditions-file row in the named loop.,integer,PsychoPy
+trials.thisN,Zero-based sequential iteration index in the named loop.,integer,PsychoPy
+trials.thisRepN,Zero-based repetition index in the named loop.,integer,PsychoPy
+trials.thisTrialN,Zero-based trial index within the current repetition.,integer,PsychoPy

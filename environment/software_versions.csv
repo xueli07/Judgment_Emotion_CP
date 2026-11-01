@@ -1,0 +1,12 @@
+component,scope,version,status,source_note
+R,Experiments 1-2,4.5.0,documented,current manuscript
+R,Experiments 3-5,4.3.3,documented,current manuscript
+R,Experiment 6,unknown,requires verification,not stated in inspected manuscript text
+PsychoPy,Experiments 1-2,2024.2.4,provisional,remapped from earlier Study 5-6 release documentation
+PsychoPy,Experiments 3-5,2023.2.3,provisional,remapped from earlier Study 1-3 release documentation
+PsychoPy,Experiment 6,2024.2.4,provisional,remapped from earlier Study 4 release documentation
+Python,HDDM,3.9.13,documented,retained HDDM environment
+HDDM,HDDM,1.0.1,documented,current manuscript
+MATLAB,Experiment 6,unknown,requires verification,exact release not retained
+Stat4CI,Experiment 6,unknown,requires verification,record source and version or commit
+

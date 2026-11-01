@@ -1,0 +1,2 @@
+comparison,estimate,statistic,df,p_value,conf_low,conf_high,method
+PC1_score_vs_intensity_level,1,0,NA,0,NA,NA,Spearman's rank correlation rho

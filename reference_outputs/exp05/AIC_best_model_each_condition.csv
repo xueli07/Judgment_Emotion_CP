@@ -1,0 +1,5 @@
+"condition","Model","AIC","RSS","n"
+"categorical_Informed","Logistic",-377.656458100481,2.20032616233714,100
+"continuous_Informed","Logistic",-434.160538828586,1.25052666890593,100
+"categorical_Uninformed","Logistic",-372.841411861302,2.30886501288517,100
+"continuous_Uninformed","Logistic",-443.844176923114,1.13510869941453,100

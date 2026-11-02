@@ -6,7 +6,7 @@ This repository has been uploaded to https://github.com/xueli07/Judgment_Emotion
 - [x] Prepare GitHub-ready repository documentation and remove obsolete repository links.
 - [x] Restore and validate public-directory Exp1-Exp2 preprocessing scripts that regenerate the analysis inputs for `02` through `05` from the de-identified raw files and inclusion tables.
 - [x] Record verified AsPredicted registrations for Exp3–Exp5 and the public ethics statement.
-- [x] Include a CC0 1.0 license consistent with the project's prior public-release standard.
+- [x] Document CC BY 4.0 for original data and documentation and MIT for original code, with third-party exclusions.
 - [x] Exclude TFED originals, morphs, average faces, noise faces, and face-derived classification images.
 - [x] Confirm that no file exceeds GitHub's ordinary Git size limit.
 - [ ] Complete a final human review for names, free text, dates, screenshots, and participant identifiers.

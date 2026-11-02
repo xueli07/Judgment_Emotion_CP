@@ -1,9 +1,43 @@
-CC0 1.0 Universal
+Repository licensing
+====================
 
-To the extent possible under law, the authors have waived all copyright and related or neighboring rights that they hold in the original data, code, and documentation contained in this repository. This work is published from China.
+Copyright (c) 2026 Xue Li, Zikai Xu, Ziyuan Guo, Shengrun Wu, Menglin Jiang, Marius V. Peelen, and Chuanji Gao
 
-You may copy, modify, distribute, and use the original repository materials, including for commercial purposes, without asking permission.
+This repository uses different licenses for different materials. It is not
+an offer to choose either license for every file.
 
-This dedication does not apply to third-party face images or derived face materials that are excluded from this repository. It does not override privacy, ethical, or other legal restrictions that may apply to the use of human-participant data.
+1. Original data, documentation, and figures: CC BY 4.0
 
-The full CC0 1.0 Universal legal code is available at https://creativecommons.org/publicdomain/zero/1.0/legalcode.
+Except where a file carries a separate third-party notice, original data,
+numerical analysis outputs, text documentation, condition workbooks, and
+original figures are licensed under Creative Commons Attribution 4.0
+International. This includes data/, docs/, environment/, source_data/,
+reference_outputs/, the root README and citation metadata, and non-code
+materials within code/. See LICENSE-CC-BY-4.0 for the full legal text.
+Provide appropriate attribution, identify changes, and retain the license
+information as required by that license. Recommended citation information
+is in CITATION.cff.
+
+2. Original software: MIT
+
+Original analysis scripts, experiment programs, PsychoPy Builder files,
+and code notebooks under code/ are licensed under the MIT License.
+Notebook code is covered by MIT; embedded third-party material retains its
+own terms, and original embedded data, figures, and explanatory prose are
+covered by CC BY 4.0. See LICENSE-MIT for the full license text.
+
+3. Third-party and excluded materials
+
+The licenses above apply only to rights the authors hold. They do not
+relicense third-party software, libraries, toolbox code, or materials.
+Existing third-party copyright and license notices must be retained.
+Dependencies such as PsychoPy, HDDM, R packages, MATLAB, and Stat4CI remain
+subject to their respective terms; mentioning a dependency is not a grant
+to redistribute it. TFED faces, morphs, average faces, noise faces, and
+face-derived classification images are not distributed in this repository,
+and no rights to those images are granted here. See
+docs/stimulus_availability.md.
+
+These licenses do not waive participant privacy or other applicable rights.
+Any permissions validly granted for previously distributed versions remain
+unaffected; this notice does not revoke an earlier CC0 dedication.

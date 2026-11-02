@@ -38,7 +38,9 @@ Some acquisition-time raw columns and task-workbook filenames retain legacy `tra
 
 ## License and citation
 
-Original materials in this repository are released under [CC0 1.0](LICENSE). This waiver does not grant rights to excluded third-party face materials. If you use these data or code, please cite this repository as described in [CITATION.cff](CITATION.cff). Article citation details will be added when available.
+Original data, numerical results, documentation, condition workbooks, and original figures are licensed under [CC BY 4.0](LICENSE-CC-BY-4.0). Original analysis scripts, experiment programs, PsychoPy Builder files, and code notebooks are licensed under the [MIT License](LICENSE-MIT). These licenses apply to different materials, not as alternatives for every file. Third-party materials retain their own terms; no rights to excluded face materials are granted. See [LICENSE](LICENSE) for scope and exceptions.
+
+If you use these data or code, please cite this repository as described in [CITATION.cff](CITATION.cff). Article citation details will be added when available.
 
 ## Repository status
 

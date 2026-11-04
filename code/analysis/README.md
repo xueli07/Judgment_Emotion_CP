@@ -8,4 +8,4 @@ Analysis folders follow the revised manuscript order. Run scripts from the repos
 - `hddm`: combined Exp1–Exp2 hierarchical drift diffusion modeling notebooks, plotting scripts, and Figure 4 export helpers.
 - `figure_generation`: illustration and figure-generation helpers.
 
-The scripts are release candidates. The remaining clean-environment checks are listed in `docs/release_checklist.md`.
+Full end-to-end execution of all analyses in a clean environment has not been completed. See `environment/REPRODUCIBILITY.md` for the reproducibility record and known environment limitations.

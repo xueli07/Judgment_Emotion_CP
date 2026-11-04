@@ -18,8 +18,5 @@ authors:
     given-names: "Marius V."
   - family-names: "Gao"
     given-names: "Chuanji"
-license:
-  - CC-BY-4.0
-  - MIT
-# Licenses apply to different materials; see LICENSE for scope.
-abstract: "De-identified behavioral data, analysis code, PsychoPy task programs, and documentation for six experiments on how continuous judgment affects categorical perception of facial emotion."
+license: CC-BY-4.0
+abstract: "De-identified behavioral data, analysis code, and documentation for six experiments on how continuous judgment affects categorical perception of facial emotion."

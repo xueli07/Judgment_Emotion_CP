@@ -40,13 +40,16 @@ root_dir <- normalizePath(file.path(script_dir, "..", "..", ".."))
 setwd(root_dir)
 
 # Define explicit paths based on the root directory
-rdata_path <- file.path(root_dir, "restricted_assets", "exp06_noise_seed.RData")
+rdata_path <- file.path(
+  root_dir, "code", "analysis", "exp06",
+  "input_pic", "exp06_noise_seed.RData"
+)
 mask_png   <- Sys.getenv("EXP06_MASK_PATH", unset = file.path(root_dir, "code", "analysis", "exp06", "input_pic", "average_face_mask.png"))
 data_path  <- file.path(root_dir, "data", "processed", "exp06", "exp06_trial_data.csv")
 results_dir <- file.path(root_dir, "results", "exp06")
 dir.create(results_dir, recursive = TRUE, showWarnings = FALSE)
 if (!file.exists(rdata_path)) {
-  stop("Experiment 6 noise seed is not included because its redistribution status requires confirmation. See docs/stimulus_availability.md.")
+  stop("Missing noise resource: ", rdata_path)
 }
 
 # Load and prepare facial mask
@@ -229,8 +232,15 @@ cat("\nCalculating Informational Value for each participant (10,000 iterations).
 for (i in seq_along(scaled_cis_participant)) {
   p_name <- names(scaled_cis_participant)[i]
   p_infoval <- computeInfoVal2IFC(scaled_cis_participant[[p_name]], rdata_path, iter = 10000)
-  pid_str <- sub(".*participant_(.*)", "\\1", p_name)
-  cond <- ifelse(substr(pid_str, 1, 1) == "3", "Categorical", "Continuous")
+pid_str <- sub(".*participant_(.*)", "\\1", p_name)
+
+condition <- S$ExpCondition[match(pid_str, S$participant)]
+
+if (is.na(condition) || !condition %in% c("category", "continuous")) {
+  stop("Cannot determine condition for participant: ", pid_str)
+}
+
+cond <- ifelse(condition == "category", "Categorical", "Continuous")
   
 
   infoval_results <- rbind(infoval_results, data.frame(
@@ -321,8 +331,8 @@ img_df <- expand.grid(x = 1:512, y = 1:512)
 img_df$value <- as.vector(eigen_image)
 img_df$z_value <- scale(img_df$value) # Standardize (z-score) to optimize color mapping
 
-# Extract base image (ensure average_face.jpg is in the root directory)
-base_face <- file.path(root_dir, "restricted_assets", "exp06_average_face.jpg")
+# Load the average face for the PC1 loading visualization
+base_face <- file.path(root_dir, "code", "analysis", "exp06", "input_pic", "average_face.jpg")
 if (file.exists(base_face)) {
   base_img <- readJPEG(base_face)  
   base_grob <- rasterGrob(base_img, width = unit(1, "npc"), height = unit(1, "npc"))

@@ -58,14 +58,14 @@ Bind-mount the **repository root**, the directory containing `README.md`, `code/
 Run this command in PowerShell. Replace `YOUR_PATH` with the absolute path to the repository root on your computer.
 
 ```powershell
-docker run -it --rm -p 127.0.0.1:8888:8888 -v "YOUR_PATH":/home/jovyan/work hcp4715/hddm:1.0.1 
+docker run -it --rm -p 127.0.0.1:8888:8888 -v "YOUR_PATH":/home/jovyan/work hcp4715/hddm:1.0.1
 ```
 
 Open the local Jupyter URL shown in the terminal. Open the notebooks inside `work/code/analysis/hddm/` so their kernels use that working directory. Notebook `0` reads `data/processed/hddm/xab_trial_level_exp01_exp02.csv` and writes model fits under `results/hddm/`. Notebooks `1` through `4` use fitted models under `results/hddm/formal_models/` and save diagnostics, posterior summaries and posterior predictive checks under `results/hddm/`.
 
-**Estimated model-fitting time.** Allow approximately 6–8 hours per HDDM model on the reference Windows machine (AMD Ryzen 9 7945HX, 32 logical processors). The full fit uses four chains with 15,000 MCMC iterations per chain, including 5,000 burn-in iterations, and a thinning interval of 2. This planning estimate covers fitting one model. Actual runtime varies with model complexity and the CPU resources allocated to Docker.
+**Estimated model-fitting time.** Allow approximately 6–8 hours per HDDM model on the reference Windows machine (AMD Ryzen 9 7945HX, 32 logical processors). The full fit uses four chains with 15,000 MCMC iterations per chain, including 5,000 burn-in iterations, and a thinning interval of 2. This estimate covers fitting one formal model. Posterior predictive simulation (PPC) takes approximately 1 hour. Actual runtime varies with model complexity and the CPU resources allocated to Docker.
 
-For a quick container check, run notebook 0 through **19. Fit one test model first** and **20. Inspect posterior stats for the test model**, then stop before the model-subset runs. The test uses 100 samples, a burn-in of 10, and writes to results/hddm/test_model/. A successful check loads the trial CSV, completes the M4 test fit, and displays posterior statistics and DIC. See the [reproducibility record](../../environment/REPRODUCIBILITY.md) for verification status.
+For a quick container check, run notebook 0 through **19. Fit one test model first** and **20. Inspect posterior stats for the test model**, then stop before the model-subset runs. The test uses 100 samples, a burn-in of 10, and writes to results/hddm/test_model/. A successful check loads the trial CSV, completes the M4 test fit, and displays posterior statistics and DIC. See the [reproduction notes](../../environment/REPRODUCIBILITY.md) for input requirements.
 
 To regenerate Figure 4 from existing tables in `reference_outputs/hddm/tables/`, use R with `ggplot2`, `dplyr`, `tidyr`, `readr`, `scales`, and Cairo support for PDF output. Run both commands from the repository root. Outputs go under `results/figure4/`.
 
@@ -79,7 +79,7 @@ Rscript --vanilla code/analysis/hddm/figure4_exports_2026-09/scripts/export_fig4
 
 Run R scripts from the repository root using `Rscript --vanilla <script-path>`. For Exp1 and Exp2, run `02_judgment_model_fitting.R`, `03_judgment_quality_control_descriptives.R`, `04_xab_data_preparation.R`, then `05_xab_frequentist_analysis.R` in their respective folders. Do not run `01_data_preprocessing.R` for public reproduction: its original inputs are not distributed.
 
-For Exp3–Exp5 run `01_model_comparison.R`, then `02_psychometric_analysis.R` from each experiment folder path. Inputs are `data/processed/exp0N/exp0N_trial_data.csv`; outputs are `results/exp0N/`. Dependencies below are scanned imports, not a single jointly validated environment. Install needed packages with `install.packages(c("package1", "package2"))`; consult source requirements for packages unavailable through your configured repository.
+For Exp3–Exp5 run `01_model_comparison.R`, then `02_psychometric_analysis.R` from each experiment folder path. Inputs are `data/processed/exp0N/exp0N_trial_data.csv`; outputs are `results/exp0N/`. Dependencies below are listed by experiment. Install needed packages with `install.packages(c("package1", "package2"))`; consult source requirements for packages unavailable through your configured repository.
 
 
 - Exp1: `Rmisc`, `bayesplot`, `brms`, `broom`, `car`, `conflicted`, `dplyr`, `effectsize`, `ez`, `ggplot2`, `gridExtra`, `minpack.lm`, `plyr`, `purrr`, `readr`, `rstan`, `rstatix`, `scales`, `tidyr`, `tidyverse`.
@@ -91,7 +91,7 @@ For Exp3–Exp5 run `01_model_comparison.R`, then `02_psychometric_analysis.R` f
 
 ### Experiment 6 handoff and methods
 
-CI reconstruction takes approximately four hours (author-provided runtime). Informational value uses 10,000 iterations; its additional runtime was not recorded. Other full-workflow runtimes are not recorded. The main script writes `results/exp06/ci_cache_all.RData` when no cache exists. The cache is not distributed; the original noise RData is distributed and enables reconstruction. These are different resources.
+CI reconstruction takes approximately four hours (author-provided runtime). Informational value uses 10,000 iterations; its additional runtime was not recorded. Subsequent representational analyses take within approximately 5 minutes, excluding the separate informational-value calculation. MATLAB spatial analysis takes within approximately 5 minutes. The main script writes `results/exp06/ci_cache_all.RData` when no cache exists. The cache is not distributed; the original noise RData is distributed and enables reconstruction. These are different resources.
 
 The cache exporter requires `ci_cat`, `ci_cont`, `ci_levels_list`, and `cor_res_loo` and assumes six intensity levels. The main analysis additionally needs participant-level CI objects; an export-compatible cache need not satisfy the main analysis. Defaults: cache `results/exp06/ci_cache_all.RData`, mask `code/analysis/exp06/input_pic/average_face_mask.png`, output `results/exp06/cache_export/`. Override with EXP06_CACHE_PATH, EXP06_MASK_PATH and EXP06_OUTPUT_DIR. It exports ten numerical tables and sessionInfo.
 
@@ -115,4 +115,12 @@ Formal model subsets and all-model fits write to `formal_models`; the independen
 
 The Exp3 demo writes `AIC_model_comparison.csv`, `AIC_best_model_by_condition.csv`, `psychometric_parameters_by_participant.csv`, `PSE_slope_paired_tests.csv`, and `sessionInfo_exp03.txt`. Its approximately three-second runtime excludes installation and covers table export only, not full Exp3 analysis or HDDM.
 
-See [verification scope](../../environment/REPRODUCIBILITY.md) and [materials](../../docs/stimulus_availability.md).
+See [reproduction notes](../../environment/REPRODUCIBILITY.md) and [materials](../../docs/stimulus_availability.md).
+
+## Analysis runtime summary
+
+Exp1 and Exp2 R judgment-phase and XAB behavioral analyses each take a few seconds. Exp3–Exp5 R model comparison, psychometric fitting, and statistical analyses each take a few seconds. These author-provided or confirmed estimates are distinct from the approximately 3-second Exp3 example-table export timing.
+
+These approximate runtimes were provided or confirmed by the authors; they are approximate timings rather than standardized benchmarks. They exclude software installation, dependency preparation, and file downloads. Actual runtime varies with hardware, analysis settings, and the computing resources allocated to Docker.
+
+See the [runtime table](../../README.md#outputs-and-runtime) for all workflows. The independent 10,000-iteration informational-value runtime remains unrecorded.

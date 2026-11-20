@@ -19,18 +19,24 @@ Experiments 1 and 2 tested whether a repeated continuous judgment phase changes 
 
 - `data/processed/`: analysis-ready trial-level tables and the combined HDDM input.
 - `code/analysis/`: R, MATLAB, Python, and HDDM analysis code.
-- `source_data/`: figure-to-data and figure-to-code index. Complete processed trial-level tables are supplied rather than duplicative panel-level tables.
+- `source_data/`: index linking each figure to its data, code and reference outputs.
 - `reference_outputs/`: selected model, quality-control, and statistical outputs.
 - `environment/`: recorded software versions and reproducibility notes.
 - `docs/`: participant and trial exclusions, stimulus sources, and sharing restrictions.
 
 ## System requirements
 
-Author-confirmed environment: Windows 11, R 4.5.0, MATLAB R2023b with Image Processing Toolbox for Exp6, Python 3.9.13 and HDDM 1.0.1 in `hcp4715/hddm:1.0.1`. No explicit GPU requirement or verified minimum RAM is specified. See [environment](environment/README.md).
+The analyses used Windows 11, R 4.5.0, MATLAB R2023b with Image Processing Toolbox for Exp6, and Python 3.9.13 with HDDM 1.0.1 in `hcp4715/hddm:1.0.1`. See the [software environment](environment/README.md).
 
 ## Installation
 
-Install the module-specific dependencies in the [analysis guide](code/analysis/README.md). For the demo, use `Rscript -e "install.packages(c('dplyr','readr','tidyr'), repos='https://cloud.r-project.org')"`. Allow approximately one hour for initial R dependencies; download and compilation times vary. PsychoPy is acquisition software and is unnecessary for CSV analyses.
+Install the three R packages used in the Exp3 demo:
+
+```sh
+Rscript -e "install.packages(c('dplyr', 'readr', 'tidyr'), repos='https://cloud.r-project.org')"
+```
+
+Allow approximately one hour for initial R dependency setup. See the [analysis guide](code/analysis/README.md) for dependencies by experiment.
 
 ## Quick demo
 
@@ -38,45 +44,45 @@ From the repository root, in PowerShell:
 
 ```powershell
 $env:EXP03_OUTPUT_DIR = 'results/exp03/demo'
-Rscript --vanilla code/analysis/exp03/03_export_reference_outputs.R
+Rscript code/analysis/exp03/03_export_reference_outputs.R
 ```
 
 POSIX:
 
 ```sh
-EXP03_OUTPUT_DIR=results/exp03/demo Rscript --vanilla code/analysis/exp03/03_export_reference_outputs.R
+EXP03_OUTPUT_DIR=results/exp03/demo Rscript code/analysis/exp03/03_export_reference_outputs.R
 ```
 
-Input: `data/processed/exp03/exp03_trial_data.csv`. Outputs in `results/exp03/demo/`: `AIC_model_comparison.csv`, `AIC_best_model_by_condition.csv`, `psychometric_parameters_by_participant.csv`, `PSE_slope_paired_tests.csv`, `sessionInfo_exp03.txt`. Compare with [reference outputs](reference_outputs/exp03/README.md). This table-export demo takes approximately three seconds with dependencies installed; it is not the full Exp3 workflow.
+The demo reads `data/processed/exp03/exp03_trial_data.csv` and writes `AIC_model_comparison.csv`, `AIC_best_model_by_condition.csv`, `psychometric_parameters_by_participant.csv`, `PSE_slope_paired_tests.csv` and `sessionInfo_exp03.txt` to `results/exp03/demo/`. The export takes about three seconds with the dependencies installed. See the [reference outputs](reference_outputs/exp03/README.md).
 
 ## Reproducing the manuscript analyses
 
-Run R from the repository root. For Exp1–2 run scripts 02–05 in each experiment directory in order: judgment fitting, QC, XAB preparation, frequentist analysis. The 01_data_preprocessing.R scripts are retained as processing records, but their original exports and inclusion tables are not distributed. Public reproduction starts at script 02.
+Run R from the repository root. For Exp1–2, use the supplied preprocessed data and run scripts `02`–`05` in order for judgment fitting, quality control, XAB preparation and frequentist analysis.
 
-For Exp3–5 run `01_model_comparison.R` then `02_psychometric_analysis.R` in each experiment's directory path, using `Rscript --vanilla`. Included helpers require plyr. For Exp6 run `Rscript --vanilla code/analysis/exp06/01_reverse_correlation_analysis.R`. It uses the processed trials, distributed noise RData and matching mask; the average JPG supports PC1 visualization. The main script generates its cache under `results/exp06/`; the cache is not bundled. Optional table export: `Rscript --vanilla code/analysis/exp06/02_export_reference_outputs_from_cache.R`.
+For Exp3–5, run `01_model_comparison.R` followed by `02_psychometric_analysis.R` in each experiment's directory with `Rscript`. For Exp6, run `Rscript code/analysis/exp06/01_reverse_correlation_analysis.R` to reconstruct the classification images and generate the cache under `results/exp06/`. The optional cache exporter is `code/analysis/exp06/02_export_reference_outputs_from_cache.R`.
 
-For MATLAB change working directory to `code/analysis/exp06/` and run `exp06_cluster_test`. It reads supplied category/continuous CI PNGs, mask and backgrounds, and writes local `result/` and `outputfig/`, distinct from root `results/`. Newly reconstructed R CIs require a manual grouped-image handoff with matching orientation, scaling and mask. Stat4CI uses random-field-theory cluster-level correction; the R six-intensity trend test uses permutation testing. The MATLAB method wording in the submitted manuscript will be corrected in revision.
+In MATLAB, set the working directory to `code/analysis/exp06/` and run `exp06_cluster_test`. It reads the supplied participant CI images, mask and backgrounds and writes `result/` and `outputfig/` within that working directory. The submitted manuscript mislabeled the MATLAB spatial analysis as a cluster-based permutation test. The analysis used Stat4CI random-field-theory cluster-level correction.
 
-For HDDM mount the repository root at `/home/jovyan/work`:
+For HDDM, replace `YOUR_PATH` with the absolute path to the repository root and mount it at `/home/jovyan/work`:
 
 ```sh
 docker run -it --rm -p 127.0.0.1:8888:8888 -v "YOUR_PATH:/home/jovyan/work" hcp4715/hddm:1.0.1
 ```
 
-Open notebooks in `work/code/analysis/hddm/`, run notebook 0 then 1–4. Formal fitting writes `results/hddm/formal_models/`, matching subsequent readers; test_model remains separate. Formal settings: four chains, 15,000 iterations, burn-in 5,000, thin 2. Quick check: 100 samples, burn-in 10, not for scientific conclusions.
+Open the notebooks in `work/code/analysis/hddm/`. In notebook `0`, complete setup through section 17, then run section 24 onward for the full model fit. Sections 19–20 provide a quick check, and sections 22–23 provide an optional subset fit. Run notebooks `1`–`4` on the formal fits in `results/hddm/formal_models/`.
 
-Figure 4 can be exported without HDDM refitting:
+To export Figure 4 from the supplied reference tables and trial data:
 
 ```sh
-Rscript --vanilla code/analysis/hddm/figure4_exports_2026-09/scripts/export_fig4_panels.R
-Rscript --vanilla code/analysis/hddm/figure4_exports_2026-09/scripts/export_fig4_rt_density.R
+Rscript code/analysis/hddm/figure4_exports_2026-09/scripts/export_fig4_panels.R
+Rscript code/analysis/hddm/figure4_exports_2026-09/scripts/export_fig4_rt_density.R
 ```
 
 These use existing reference tables and trial data and write `results/figure4/`. Full commands, dependencies and adaptation guidance: [analysis guide](code/analysis/README.md).
 
 ## Using the code with your own data
 
-Follow the independent [own-data guide](code/analysis/README.md#using-the-code-with-your-own-data), using the supplied processed CSV headers as schemas and the preserved acquisition-column dictionaries as supplementary documentation. Change script input paths and redirect output; preserve participant pairing, response coding, missing values and units. The Exp3 demo input requires editing data_path (EXP03_OUTPUT_DIR only changes output). Its intensity transform is (emotion_level - 50) / 10 and must match your scale. HDDM INPUT_PATH/OUTPUT_DIR are in notebook 0; update later readers too. Exp6 requires your matching noise parameters and aligned images/mask. Review model assumptions, thresholds, condition reference levels and exclusions for the new study; arbitrary CSVs are not interchangeable.
+See the [own-data guide](code/analysis/README.md#using-the-code-with-your-own-data) for input fields, units, participant pairing and settings to adapt for your study.
 
 ## Outputs and runtime
 
@@ -95,23 +101,19 @@ Follow the independent [own-data guide](code/analysis/README.md#using-the-code-w
 | HDDM | Formal model fitting | Approximately 6–8 hours per model |
 | HDDM | Posterior predictive simulation (PPC) | Approximately 1 hour |
 
-These approximate runtimes were provided or confirmed by the authors; they are approximate timings rather than standardized benchmarks. They exclude software installation, dependency preparation, and file downloads. Actual runtime varies with hardware, analysis settings, and the computing resources allocated to Docker.
+Runtimes are approximate and vary with hardware, analysis settings and the resources allocated to Docker.
 
-HDDM reference configuration: AMD Ryzen 9 7945HX, 32 logical processors; four chains, 15,000 iterations per chain, burn-in 5,000, thinning 2. This is a runtime reference, not a minimum hardware requirement.
+HDDM reference configuration: AMD Ryzen 9 7945HX with 32 logical processors. Each formal fit uses four chains, 15,000 iterations per chain, 5,000 burn-in iterations and a thinning interval of 2.
 
-The Exp3 quick demo takes approximately 3 seconds for example-table export only; this timing is not a measured benchmark for the full Exp3 analysis. The separate 10,000-iteration informational-value calculation has no recorded runtime and is not covered by the five-minute estimate for subsequent Exp6 representational analyses.
+The Exp6 five-minute estimate covers representational analyses after reconstruction. The 10,000-iteration informational-value calculation is a separate step with no recorded runtime.
 
 ## Data/material availability
 
-Selected Experiment 6 resources are included to support reproducibility: the average face, facial mask, visualization backgrounds, participant-level classification images, and an RData file containing the base image and parameters used to reconstruct the original noise patterns.
+The Exp6 materials in `code/analysis/exp06/input_pic/` include the approved average face, mask, visualization backgrounds and `exp06_noise_seed.RData`. The average-face JPG supports visualization. The RData contains the base image and parameters for reconstructing the noise patterns. The `category/` and `continuous/` directories each contain 30 participant classification images.
 
-Average-face permission has been confirmed. `code/analysis/exp06/input_pic/` contains `average_face.jpg`, `average_face_mask.png`, `thinkstyle1_autoscaled.png`, `thinkstyle2_autoscaled.png` (all four images are 512 × 512), and `exp06_noise_seed.RData`. The `category/` and `continuous/` folders each contain 30 participant CI PNGs. CI PNGs are derived classification images, not original stimulus images.
+The [stimulus availability notes](docs/stimulus_availability.md) describe the shared materials and their usage terms.
 
-The shared RData contains `base_faces$chinese` (512 × 512), `base_face_files$chinese` (`average_face.jpg`), `stimuli_params$chinese` (600 × 4092), `n_trials = 600`, `seed = 1`, and `noise_type = sinusoid`. It was renamed from `face_seed_1_time_8月_28_2025_20_13_副本.Rdata` without changing its objects. The JPG cannot replace this noise resource. Object availability alone does not establish successful reconstruction of the manuscript results.
-
-Individual noise-added stimulus face images, other original facial stimulus images, and morphed facial stimulus images are not distributed. Third-party materials and their derivatives remain subject to the applicable source permissions and license terms. Their inclusion does not grant additional rights or automatically license them under CC BY 4.0.
-
-Only de-identified, preprocessed trial-level behavioral data are distributed; original participant exports and participant-inclusion tables are not distributed. Participant identifiers remain de-identified; the identification key is excluded. See [processed-data documentation](data/processed/README.md) and [column dictionaries](docs/data_dictionaries/README.md).
+Behavioral data are shared as de-identified, preprocessed trial-level tables. See the [processed-data documentation](data/processed/README.md) and [column dictionaries](docs/data_dictionaries/README.md).
 
 ## Experimental task programs
 
@@ -119,4 +121,4 @@ Experimental task programs are available upon request at 242312056@njnu.edu.cn. 
 
 ## License and citation
 
-Analysis code and original materials for which the authors hold rights are licensed under [CC BY 4.0](LICENSE-CC-BY-4.0), subject to [third-party exceptions](LICENSE). Cite through [CITATION.cff](CITATION.cff). Article citation details will be added when available.
+Analysis code and original materials for which the authors hold rights are licensed under [CC BY 4.0](LICENSE-CC-BY-4.0). See the [third-party terms](LICENSE) and [citation information](CITATION.cff).

@@ -14,7 +14,7 @@ script_arg <- grep("^--file=", commandArgs(trailingOnly = FALSE), value = TRUE)
 script_dir <- if (length(script_arg)) dirname(normalizePath(sub("^--file=", "", script_arg[1]))) else normalizePath(getwd())
 root_dir <- normalizePath(file.path(script_dir, "..", "..", ".."), mustWork = TRUE)
 data_path <- file.path(root_dir, "data", "processed", "exp03", "exp03_trial_data.csv")
-output_dir <- Sys.getenv("EXP03_OUTPUT_DIR", unset = file.path(root_dir, "reference_outputs", "exp03"))
+output_dir <- Sys.getenv("EXP03_OUTPUT_DIR", unset = file.path(root_dir, "results", "exp03", "demo"))
 dir.create(output_dir, recursive = TRUE, showWarnings = FALSE)
 
 trial_data <- read_csv(data_path, show_col_types = FALSE) %>%

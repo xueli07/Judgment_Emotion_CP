@@ -4,7 +4,7 @@ Run R commands from the repository root. The MATLAB and HDDM sections specify th
 
 ## Quick demo
 
-Install R and the three demo packages. In the tested Windows environment, R 4.5.0 with dplyr 1.2.1 and readr 2.1.5 exported the demo tables in about 3 seconds with the packages already installed. Installation time depends on the connection and availability of binary packages.
+Install the three R packages used in the Exp3 demo. The export takes about three seconds on Windows 11 with R 4.5.0 and the dependencies installed.
 
 ```sh
 Rscript -e "install.packages(c('dplyr', 'readr', 'tidyr'), repos='https://cloud.r-project.org')"
@@ -14,28 +14,28 @@ In PowerShell:
 
 ```powershell
 $env:EXP03_OUTPUT_DIR = 'results/exp03/demo'
-Rscript --vanilla code/analysis/exp03/03_export_reference_outputs.R
+Rscript code/analysis/exp03/03_export_reference_outputs.R
 ```
 
 In a POSIX shell:
 
 ```sh
-EXP03_OUTPUT_DIR=results/exp03/demo Rscript --vanilla code/analysis/exp03/03_export_reference_outputs.R
+EXP03_OUTPUT_DIR=results/exp03/demo Rscript code/analysis/exp03/03_export_reference_outputs.R
 ```
 
 The demo reads `data/processed/exp03/exp03_trial_data.csv` and writes four CSVs containing AIC comparisons, best models, participant PSEs and slopes, and paired tests. It also saves R session information. Compare the CSVs with the [reference tables](../../reference_outputs/exp03/README.md).
 
 ## Experiments 1 and 2
 
-With the supplied trial tables under `data/processed/`, run scripts `02` through `05` in order for each experiment: judgment fitting, quality control, XAB preparation, and XAB frequentist analysis. For example, start Experiment 1 with `Rscript --vanilla code/analysis/exp01/02_judgment_model_fitting.R`. Outputs and intermediate inputs are under `results/exp01/` and `results/exp02/`.
+With the supplied trial tables under `data/processed/`, run scripts `02` through `05` in order for each experiment: judgment fitting, quality control, XAB preparation, and XAB frequentist analysis. For example, start Experiment 1 with `Rscript code/analysis/exp01/02_judgment_model_fitting.R`. Outputs and intermediate inputs are under `results/exp01/` and `results/exp02/`.
 
-The Exp1–2 `01_data_preprocessing.R` scripts are retained as processing records. Their original participant exports and participant-inclusion tables are not distributed, so they cannot run from the public checkout alone. Start public reproduction at script 02. With separately held original inputs, OUTPUT_PATH and QC_DIR redirect preprocessing output, and Exp1 DEMOGRAPHICS_PATH supplies demographic fields; synchronize subsequent readers if outputs move.
+The `01_data_preprocessing.R` scripts document preprocessing from the original participant exports and inclusion tables. For reproduction with the supplied trial tables, start at script `02`.
 
 R packages include `tidyverse`, `readr`, `dplyr`, `purrr`, `minpack.lm`, `broom`, `scales`, `Rmisc`, `conflicted`, `car`, `rstatix`, and `ez`.
 
 ## Experiments 3 to 5
 
-Run `01_model_comparison.R` and `02_psychometric_analysis.R` in each experiment folder via `Rscript --vanilla`. Inputs are under `data/processed/exp03/` through `data/processed/exp05/`. Outputs go to the corresponding experiment folder under `results/`.
+Run `01_model_comparison.R` and `02_psychometric_analysis.R` in each experiment folder via `Rscript`. Inputs are under `data/processed/exp03/` through `data/processed/exp05/`. Outputs go to the corresponding experiment folder under `results/`.
 
 The helper_functions.R files are included for Exp3–Exp5 and require plyr.
 
@@ -45,7 +45,7 @@ In addition to tidyverse packages, the scripts use `readxl`, `reshape2`, `gridEx
 
 * Run `02_export_reference_outputs_from_cache.R` with R to regenerate ten tables from a CI cache and its matching face mask. See the [Exp6 command, paths, and packages](../../reference_outputs/exp06/README.md).
 
-* Run `Rscript --vanilla code/analysis/exp06/01_reverse_correlation_analysis.R` for the reconstruction workflow. It reads `data/processed/exp06/exp06_trial_data.csv` and requires `code/analysis/exp06/input_pic/exp06_noise_seed.RData` and the matching face mask. The optional rendering image is `code/analysis/exp06/input_pic/average_face.jpg`. Outputs go under `results/exp06/`. R packages include `rcicr`, `dplyr`, `purrr`, `ggplot2`, `lme4`, `lmerTest`, `corrplot`, `combinat`, `imager`, `png`, and `jpeg`.
+* Run `Rscript code/analysis/exp06/01_reverse_correlation_analysis.R` for the reconstruction workflow. It reads `data/processed/exp06/exp06_trial_data.csv` and requires `code/analysis/exp06/input_pic/exp06_noise_seed.RData` and the matching face mask. The optional rendering image is `code/analysis/exp06/input_pic/average_face.jpg`. Outputs go under `results/exp06/`. R packages include `rcicr`, `dplyr`, `purrr`, `ggplot2`, `lme4`, `lmerTest`, `corrplot`, `combinat`, `imager`, `png`, and `jpeg`.
 
 * For the MATLAB cluster script, set the working directory to `code/analysis/exp06` and run `exp06_cluster_test`. It uses Image Processing Toolbox and Stat4CI functions under `subfunction/`. Inputs are the participant CI PNGs in `category/` and `continuous/` and the mask and background images in `input_pic/`. Outputs go to `result/` and `outputfig/` under the MATLAB working directory.
 
@@ -58,29 +58,25 @@ Bind-mount the **repository root**, the directory containing `README.md`, `code/
 Run this command in PowerShell. Replace `YOUR_PATH` with the absolute path to the repository root on your computer.
 
 ```powershell
-docker run -it --rm -p 127.0.0.1:8888:8888 -v "YOUR_PATH":/home/jovyan/work hcp4715/hddm:1.0.1
+docker run -it --rm -p 127.0.0.1:8888:8888 -v "YOUR_PATH:/home/jovyan/work" hcp4715/hddm:1.0.1
 ```
 
-Open the local Jupyter URL shown in the terminal. Open the notebooks inside `work/code/analysis/hddm/` so their kernels use that working directory. Notebook `0` reads `data/processed/hddm/xab_trial_level_exp01_exp02.csv` and writes model fits under `results/hddm/`. Notebooks `1` through `4` use fitted models under `results/hddm/formal_models/` and save diagnostics, posterior summaries and posterior predictive checks under `results/hddm/`.
+Open the Jupyter URL shown in the terminal and navigate to `work/code/analysis/hddm/`. In notebook `0`, complete setup through section 17, then run section 24 onward for the full model fit. Sections 22–23 provide an optional subset fit. The full fit writes to `results/hddm/formal_models/`, which notebooks `1`–`4` use for diagnostics, posterior summaries and posterior predictive checks.
 
-**Estimated model-fitting time.** Allow approximately 6–8 hours per HDDM model on the reference Windows machine (AMD Ryzen 9 7945HX, 32 logical processors). The full fit uses four chains with 15,000 MCMC iterations per chain, including 5,000 burn-in iterations, and a thinning interval of 2. This estimate covers fitting one formal model. Posterior predictive simulation (PPC) takes approximately 1 hour. Actual runtime varies with model complexity and the CPU resources allocated to Docker.
+See the [runtime table](../../README.md#outputs-and-runtime) for HDDM settings and estimated runtimes.
 
-For a quick container check, run notebook 0 through **19. Fit one test model first** and **20. Inspect posterior stats for the test model**, then stop before the model-subset runs. The test uses 100 samples, a burn-in of 10, and writes to results/hddm/test_model/. A successful check loads the trial CSV, completes the M4 test fit, and displays posterior statistics and DIC. See the [reproduction notes](../../environment/REPRODUCIBILITY.md) for input requirements.
+For a quick container check, run notebook `0` through section 20. Sections 19–20 fit and inspect one model using 100 samples and 10 burn-in iterations. Outputs go to `results/hddm/test_model/`.
 
 To regenerate Figure 4 from existing tables in `reference_outputs/hddm/tables/`, use R with `ggplot2`, `dplyr`, `tidyr`, `readr`, `scales`, and Cairo support for PDF output. Run both commands from the repository root. Outputs go under `results/figure4/`.
 
 ```sh
-Rscript --vanilla code/analysis/hddm/figure4_exports_2026-09/scripts/export_fig4_panels.R
-Rscript --vanilla code/analysis/hddm/figure4_exports_2026-09/scripts/export_fig4_rt_density.R
+Rscript code/analysis/hddm/figure4_exports_2026-09/scripts/export_fig4_panels.R
+Rscript code/analysis/hddm/figure4_exports_2026-09/scripts/export_fig4_rt_density.R
 ```
-
 
 ## Execution details and dependencies
 
-Run R scripts from the repository root using `Rscript --vanilla <script-path>`. For Exp1 and Exp2, run `02_judgment_model_fitting.R`, `03_judgment_quality_control_descriptives.R`, `04_xab_data_preparation.R`, then `05_xab_frequentist_analysis.R` in their respective folders. Do not run `01_data_preprocessing.R` for public reproduction: its original inputs are not distributed.
-
-For Exp3–Exp5 run `01_model_comparison.R`, then `02_psychometric_analysis.R` from each experiment folder path. Inputs are `data/processed/exp0N/exp0N_trial_data.csv`; outputs are `results/exp0N/`. Dependencies below are listed by experiment. Install needed packages with `install.packages(c("package1", "package2"))`; consult source requirements for packages unavailable through your configured repository.
-
+Dependencies are listed below by experiment.
 
 - Exp1: `Rmisc`, `bayesplot`, `brms`, `broom`, `car`, `conflicted`, `dplyr`, `effectsize`, `ez`, `ggplot2`, `gridExtra`, `minpack.lm`, `plyr`, `purrr`, `readr`, `rstan`, `rstatix`, `scales`, `tidyr`, `tidyverse`.
 - Exp2: `Rmisc`, `bayesplot`, `brms`, `broom`, `car`, `conflicted`, `dplyr`, `effectsize`, `ez`, `ggplot2`, `gridExtra`, `minpack.lm`, `plyr`, `purrr`, `readr`, `rstan`, `rstatix`, `scales`, `tidyr`, `tidyverse`.
@@ -91,17 +87,17 @@ For Exp3–Exp5 run `01_model_comparison.R`, then `02_psychometric_analysis.R` f
 
 ### Experiment 6 handoff and methods
 
-CI reconstruction takes approximately four hours (author-provided runtime). Informational value uses 10,000 iterations; its additional runtime was not recorded. Subsequent representational analyses take within approximately 5 minutes, excluding the separate informational-value calculation. MATLAB spatial analysis takes within approximately 5 minutes. The main script writes `results/exp06/ci_cache_all.RData` when no cache exists. The cache is not distributed; the original noise RData is distributed and enables reconstruction. These are different resources.
+The main R script generates `results/exp06/ci_cache_all.RData` from the included noise resource. Run the cache exporter after that file is available.
 
-The cache exporter requires `ci_cat`, `ci_cont`, `ci_levels_list`, and `cor_res_loo` and assumes six intensity levels. The main analysis additionally needs participant-level CI objects; an export-compatible cache need not satisfy the main analysis. Defaults: cache `results/exp06/ci_cache_all.RData`, mask `code/analysis/exp06/input_pic/average_face_mask.png`, output `results/exp06/cache_export/`. Override with EXP06_CACHE_PATH, EXP06_MASK_PATH and EXP06_OUTPUT_DIR. It exports ten numerical tables and sessionInfo.
+The cache exporter uses `ci_cat`, `ci_cont`, `ci_levels_list` and `cor_res_loo` across six intensity levels. See the [Exp6 reference-output guide](../../reference_outputs/exp06/README.md) for default paths and environment variables.
 
-MATLAB defaults to the supplied participant PNGs in `code/analysis/exp06/category/` and `continuous/`; these can be analyzed independently. R reconstruction outputs reside under `results/exp06/`. To use newly reconstructed CIs, correctly group the participant images for MATLAB or change its image-folder settings. Preserve image orientation, scaling, group assignment and mask alignment. This handoff is not automated.
+To analyze newly reconstructed CIs in MATLAB, group the participant images by judgment format or update the input folder settings. Match the image orientation, scaling and mask to the MATLAB inputs.
 
-MATLAB uses Stat4CI random-field-theory cluster-level correction, not cluster-based permutation testing. The R trend test across six intensity levels does use permutation testing. The submitted manuscript's MATLAB method description is to be corrected in revision; statistical methods and parameters are unchanged here.
+The MATLAB spatial analysis uses Stat4CI random-field-theory cluster-level correction. The R trend test across six intensity levels uses permutation testing.
 
 ## Using the code with your own data
 
-Use the supplied CSV headers and supplementary acquisition-column dictionaries in `docs/data_dictionaries/` as format references. Preserve missing-value handling, response coding, units, participant pairing and exclusions used by the script, or deliberately adapt them to your design. Arbitrary CSVs cannot be used without adaptation. Change each script's input/data path and results directory to avoid overwriting supplied or prior outputs. Model forms, thresholds, condition reference levels, intensity scales and exclusion rules need review for a different study. This is format guidance, not validation on external researchers' data.
+Use the supplied CSV headers and the [acquisition-column dictionaries](../../docs/data_dictionaries/README.md) as format references. Set input and output paths for your study and adapt the coding, units, pairing and model settings as described below.
 
 | Module | Input and required adaptations |
 | --- | --- |
@@ -111,16 +107,4 @@ Use the supplied CSV headers and supplementary acquisition-column dictionaries i
 | Exp6 | `data/processed/exp06/exp06_trial_data.csv`: participant, ExpCondition, num, Resp, Raw_chosen and other supplied fields. ExpCondition = category/continuous; Resp = −1/+1. num must correspond one-to-one to the original noise parameters. Supply your own matching noise resource, not this study's parameters for unrelated stimuli. Match mask, image dimensions/orientation and intensity bins. Edit main-script input/resource/results paths. Cache overrides and six-level assumptions are described above. |
 | HDDM | `data/processed/hddm/xab_trial_level_exp01_exp02.csv`: judgment_condition, pair_type (between/within), xab_resp (1 correct, 0 error), xab_rt (seconds), subj_idx (unique consistent participant ID). In notebook 0 User settings change INPUT_PATH and OUTPUT_DIR; synchronize later notebook inputs. Inspect combined CSV and code condition mapping rather than copying Exp2 control labels unchecked. Default RT range is 0.20–3 seconds; adapt for your study. |
 
-Formal model subsets and all-model fits write to `formal_models`; the independent `test_model` branch is a quick check, not scientific fitting. The 100-sample/10-burn-in check does not replace formal four-chain fitting.
-
-The Exp3 demo writes `AIC_model_comparison.csv`, `AIC_best_model_by_condition.csv`, `psychometric_parameters_by_participant.csv`, `PSE_slope_paired_tests.csv`, and `sessionInfo_exp03.txt`. Its approximately three-second runtime excludes installation and covers table export only, not full Exp3 analysis or HDDM.
-
 See [reproduction notes](../../environment/REPRODUCIBILITY.md) and [materials](../../docs/stimulus_availability.md).
-
-## Analysis runtime summary
-
-Exp1 and Exp2 R judgment-phase and XAB behavioral analyses each take a few seconds. Exp3–Exp5 R model comparison, psychometric fitting, and statistical analyses each take a few seconds. These author-provided or confirmed estimates are distinct from the approximately 3-second Exp3 example-table export timing.
-
-These approximate runtimes were provided or confirmed by the authors; they are approximate timings rather than standardized benchmarks. They exclude software installation, dependency preparation, and file downloads. Actual runtime varies with hardware, analysis settings, and the computing resources allocated to Docker.
-
-See the [runtime table](../../README.md#outputs-and-runtime) for all workflows. The independent 10,000-iteration informational-value runtime remains unrecorded.

@@ -5,7 +5,7 @@
 The cache export regenerates ten numerical tables covering group CI similarity, PCA and its association with intensity, the permutation test, and jackknife and mixed-model summaries. From the repository root:
 
 ```sh
-Rscript --vanilla code/analysis/exp06/02_export_reference_outputs_from_cache.R
+Rscript code/analysis/exp06/02_export_reference_outputs_from_cache.R
 ```
 
 | Input or output | Default local path | Override |

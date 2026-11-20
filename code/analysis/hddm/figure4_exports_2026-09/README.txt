@@ -6,7 +6,7 @@ Continuous, data columns, condition codes, estimates, and statistical calculatio
 Panel c significance annotations are transcribed from the supplied manuscript, not recalculated.
 Original scripts and outputs remain untouched.
 
-Reproduction: run the two R scripts in scripts/ with the HDDM directory as working directory.
+Reproduction: run the two R scripts in scripts/ from the repository root. They read the released tables under reference_outputs/hddm/tables/ and write to results/figure4/.
 Required R packages: ggplot2, dplyr, tidyr, readr, scales.
 
 These are separate panels, not a replacement of the Word manuscript.

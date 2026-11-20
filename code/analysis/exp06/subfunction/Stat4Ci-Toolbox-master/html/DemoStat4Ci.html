@@ -1,0 +1,126 @@
+<html xmlns:mwsh="http://www.mathworks.com/namespace/mcode/v1/syntaxhighlight.dtd">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <!--
+This HTML is auto-generated from an M-file.
+To make changes, update the M-file and republish this document.
+      -->
+      <title>DemoStat4Ci</title>
+      <meta name="generator" content="MATLAB 7.0">
+      <meta name="date" content="2005-09-19">
+      <meta name="m-file" content="DemoStat4Ci"><style>
+body {
+  background-color: white;
+  margin:10px;
+}
+h1 {
+  color: #990000; 
+  font-size: x-large;
+}
+h2 {
+  color: #990000;
+  font-size: medium;
+}
+p.footer {
+  text-align: right;
+  font-size: xx-small;
+  font-weight: lighter;
+  font-style: italic;
+  color: gray;
+}
+
+pre.codeinput {
+  margin-left: 30px;
+}
+
+span.keyword {color: #0000FF}
+span.comment {color: #228B22}
+span.string {color: #A020F0}
+span.untermstring {color: #B20000}
+span.syscmd {color: #B28C00}
+
+pre.showbuttons {
+  margin-left: 30px;
+  border: solid black 2px;
+  padding: 4px;
+  background: #EBEFF3;
+}
+
+pre.codeoutput {
+  color: gray;
+  font-style: italic;
+}
+pre.error {
+  color: red;
+}
+
+/* Make the text shrink to fit narrow windows, but not stretch too far in 
+wide windows.  On Gecko-based browsers, the shrink-to-fit doesn't work. */ 
+p,h1,h2,div {
+  /* for MATLAB's browser */
+  width: 600px;
+  /* for Mozilla, but the "width" tag overrides it anyway */
+  max-width: 600px;
+  /* for IE */
+  width:expression(document.body.clientWidth > 620 ? "600px": "auto" );
+}
+
+    </style></head>
+   <body><pre class="codeinput"><span class="comment">% DEMOSTAT4CI illustrates the usage of the Stat2Ci toolbox on two classification images from:</span>
+<span class="comment">%		Gosselin, F. &amp; Schyns, P. G. (2001).  Bubbles: A technique to reveal the use of information</span>
+<span class="comment">% 		in recognition. Vision Research, 41, 2261-2271.</span>
+<span class="comment">% 	The Stat4Ci toolbox allows to perform the Pixel and the Cluster tests, both based on Random Field</span>
+<span class="comment">% 	Theory. These tests are easy to apply, requiring a mere four pieces of information; and they</span>
+<span class="comment">% 	typically produce statistical thresholds (or p-values) lower than the standard Bonferroni correction.</span>
+<span class="comment">%</span>
+<span class="comment">%	An excellent non-technical reference is:</span>
+<span class="comment">% 		K. J. Worsley (1996) the geometry of random image. Chance, 9, 27-40.</span>
+<span class="comment">%</span>
+<span class="comment">%	We borrowed from several sources: the STAT_THRESHOLD function was written by Keith Worsley for the fmristat toolbox</span>
+<span class="comment">% 	(http://www.math.mcgill.ca/~keith/fmristat); and our DISPLAYCI function calls many functions from the</span>
+<span class="comment">%	Image Processing toolbox.</span>
+<span class="comment">%</span>
+<span class="comment">% The Stat4Ci toolbox is free (http://mapageweb.umontreal.ca/gosselif/stat4ci.html); if you use</span>
+<span class="comment">% it in your research, please, cite us:</span>
+<span class="comment">%	Chauvin, A., Worsley, K. J., Schyns, P. G., Arguin, M. &amp; Gosselin, F. (2004).  A sensitive</span>
+<span class="comment">%	statistical test for smooth classification images.</span>
+<span class="comment">%</span>
+<span class="comment">% Alan Chauvin &amp; Fr&#142;d&#142;ric Gosselin (frederic.gosselin@umontreal.ca), 20/08/2004</span>
+
+<span class="comment">% % Loads a classification image</span>
+SCi = double(imread(<span class="string">'GenderFG.tiff'</span>)); <span class="comment">% from Gosselin &amp; Schyns, 2001, Experiment 1, GENDER, subject FG</span>
+SCi = double(imread(<span class="string">'exnexFG.tiff'</span>)); <span class="comment">% from Gosselin &amp; Schyns, 2001, Experiment 1, GENDER, subject FG</span>
+SCi = cIm2hrCi(SCi);
+
+sigma_b = 20;	<span class="comment">%std of smoothing filter</span>
+
+<span class="comment">% % Specifies a search space; here: the face area</span>
+S_r = double(imread(<span class="string">'faceMask.tiff'</span>));
+S_r = (S_r - min(S_r(:))) / (max(S_r(:))-min(S_r(:)));
+
+<span class="comment">% % Extracts the area outside the mask; used for the estimation of expected mean and variance of the Ci</span>
+vecSCi = SCi(eq(S_r,0));
+
+<span class="comment">% % Z-transforms the SCi</span>
+Res = ZTransSCi(SCi,mean(vecSCi(:)),std(vecSCi(:)));
+Res.ZSCi = Res.ZSCi.*S_r;
+
+<span class="comment">% % Performs the Pixel or Cluster test</span>
+p = .05;	<span class="comment">%p-value</span>
+tC = 2.7; 	<span class="comment">%threshold (for Cluster test)</span>
+Res = StatThresh(Res,p,sigma_b,tC,S_r);
+
+<span class="comment">% % Displays the results</span>
+background = double(imread(<span class="string">'w1H.JPG'</span>));  <span class="comment">% a face used by Gosselin &amp; Schyns, 2001, Experiment 1</span>
+tCi = DiplayRes(Res,background); 		<span class="comment">% the results of one of the tests with a background</span>
+</pre><pre class="codeoutput">Error using ==&gt; imread
+File "GenderFG.tiff" does not exist.</pre><p class="footer"><br>
+         Published with MATLAB&reg; 7.0<br></p>
+      <!--
+##### SOURCE BEGIN #####
+% DEMOSTAT4CI illustrates the usage of the Stat2Ci toolbox on two classification images from:%		Gosselin, F. & Schyns, P. G. (2001).  Bubbles: A technique to reveal the use of information % 		in recognition. Vision Research, 41, 2261-2271.% 	The Stat4Ci toolbox allows to perform the Pixel and the Cluster tests, both based on Random Field % 	Theory. These tests are easy to apply, requiring a mere four pieces of information; and they % 	typically produce statistical thresholds (or p-values) lower than the standard Bonferroni correction.% %	An excellent non-technical reference is:% 		K. J. Worsley (1996) the geometry of random image. Chance, 9, 27-40.% %	We borrowed from several sources: the STAT_THRESHOLD function was written by Keith Worsley for the fmristat toolbox% 	(http://www.math.mcgill.ca/~keith/fmristat); and our DISPLAYCI function calls many functions from the %	Image Processing toolbox.% % The Stat4Ci toolbox is free (http://mapageweb.umontreal.ca/gosselif/stat4ci.html); if you use % it in your research, please, cite us:%	Chauvin, A., Worsley, K. J., Schyns, P. G., Arguin, M. & Gosselin, F. (2004).  A sensitive %	statistical test for smooth classification images.% % Alan Chauvin & Frdric Gosselin (frederic.gosselin@umontreal.ca), 20/08/2004% % Loads a classification imageSCi = double(imread('GenderFG.tiff')); % from Gosselin & Schyns, 2001, Experiment 1, GENDER, subject FG SCi = double(imread('exnexFG.tiff')); % from Gosselin & Schyns, 2001, Experiment 1, GENDER, subject FG SCi = cIm2hrCi(SCi);sigma_b = 20;	%std of smoothing filter% % Specifies a search space; here: the face areaS_r = double(imread('faceMask.tiff'));S_r = (S_r - min(S_r(:))) / (max(S_r(:))-min(S_r(:)));% % Extracts the area outside the mask; used for the estimation of expected mean and variance of the CivecSCi = SCi(eq(S_r,0));% % Z-transforms the SCiRes = ZTransSCi(SCi,mean(vecSCi(:)),std(vecSCi(:)));Res.ZSCi = Res.ZSCi.*S_r;% % Performs the Pixel or Cluster testp = .05;	%p-valuetC = 2.7; 	%threshold (for Cluster test)Res = StatThresh(Res,p,sigma_b,tC,S_r);% % Displays the resultsbackground = double(imread('w1H.JPG'));  % a face used by Gosselin & Schyns, 2001, Experiment 1tCi = DiplayRes(Res,background); 		% the results of one of the tests with a background	
+##### SOURCE END #####
+-->
+   </body>
+</html>

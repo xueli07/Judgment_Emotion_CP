@@ -35,18 +35,18 @@ theme_psychometric <- function(base_size = 12) {
 # ==============================================================================
 # Resolve the package root from this script's location.
 script_arg <- grep("^--file=", commandArgs(trailingOnly = FALSE), value = TRUE)
-script_dir <- if (length(script_arg)) dirname(normalizePath(sub("^--file=", "", script_arg[1]))) else normalizePath(getwd())
-root_dir <- normalizePath(file.path(script_dir, "..", ".."))
+script_dir <- if (length(script_arg)) dirname(normalizePath(sub("^--file=", "", script_arg[1]))) else file.path(getwd(), "code", "analysis", "exp06")
+root_dir <- normalizePath(file.path(script_dir, "..", "..", ".."))
 setwd(root_dir)
 
 # Define explicit paths based on the root directory
 rdata_path <- file.path(root_dir, "restricted_assets", "exp06_noise_seed.RData")
-mask_png   <- file.path(root_dir, "data", "exp06", "average_face_mask.png")
-data_path  <- file.path(root_dir, "data", "exp06", "exp06_trial_data.csv")
+mask_png   <- Sys.getenv("EXP06_MASK_PATH", unset = file.path(root_dir, "code", "analysis", "exp06", "input_pic", "average_face_mask.png"))
+data_path  <- file.path(root_dir, "data", "processed", "exp06", "exp06_trial_data.csv")
 results_dir <- file.path(root_dir, "results", "exp06")
 dir.create(results_dir, recursive = TRUE, showWarnings = FALSE)
 if (!file.exists(rdata_path)) {
-  stop("Experiment 6 noise seed is not included because its redistribution status requires confirmation. See restricted_assets/README.md.")
+  stop("Experiment 6 noise seed is not included because its redistribution status requires confirmation. See docs/stimulus_availability.md.")
 }
 
 # Load and prepare facial mask
@@ -94,7 +94,7 @@ levels_map <- paste0("Level", 1:6)
 # ==============================================================================
 # 2. CACHING BLOCK: Generate all Classification Images (CIs)
 # ==============================================================================
-ci_cache_file <- file.path(results_dir, "ci_cache_all.RData")
+ci_cache_file <- Sys.getenv("EXP06_CACHE_PATH", unset = file.path(results_dir, "ci_cache_all.RData"))
 
 if (file.exists(ci_cache_file)) {
   cat("Cache file detected. Loading pre-computed CIs...\n")

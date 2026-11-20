@@ -20,8 +20,7 @@ find_project_dir <- function() {
   candidates <- unique(c(
     normalizePath(getwd(), winslash = "/", mustWork = FALSE),
     normalizePath(file.path(getwd(), ".."), winslash = "/", mustWork = FALSE),
-    normalizePath(file.path(getwd(), "..", ".."), winslash = "/", mustWork = FALSE),
-
+    normalizePath(file.path(getwd(), "..", ".."), winslash = "/", mustWork = FALSE)
   ))
 
   for (candidate in candidates) {

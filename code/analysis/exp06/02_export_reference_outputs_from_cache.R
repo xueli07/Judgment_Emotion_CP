@@ -1,8 +1,7 @@
 #!/usr/bin/env Rscript
 
 # Export the numerical Exp6 reference tables from a locally authorized CI cache.
-# The cache and face mask are restricted assets and are intentionally not included
-# in this public repository. Before running, set EXP06_CACHE_PATH and EXP06_MASK_PATH.
+# Set EXP06_CACHE_PATH and EXP06_MASK_PATH to override the local input paths.
 
 suppressPackageStartupMessages({
   library(dplyr)
@@ -14,11 +13,11 @@ suppressPackageStartupMessages({
 })
 
 script_arg <- grep("^--file=", commandArgs(trailingOnly = FALSE), value = TRUE)
-script_dir <- if (length(script_arg)) dirname(normalizePath(sub("^--file=", "", script_arg[1]))) else normalizePath(getwd())
+script_dir <- if (length(script_arg)) dirname(normalizePath(sub("^--file=", "", script_arg[1]))) else file.path(getwd(), "code", "analysis", "exp06")
 root_dir <- normalizePath(file.path(script_dir, "..", "..", ".."), mustWork = TRUE)
-output_dir <- Sys.getenv("EXP06_OUTPUT_DIR", unset = file.path(root_dir, "reference_outputs", "exp06"))
-cache_path <- Sys.getenv("EXP06_CACHE_PATH")
-mask_path <- Sys.getenv("EXP06_MASK_PATH")
+output_dir <- Sys.getenv("EXP06_OUTPUT_DIR", unset = file.path(root_dir, "results", "exp06", "cache_export"))
+cache_path <- Sys.getenv("EXP06_CACHE_PATH", unset = file.path(root_dir, "reference_outputs", "exp06", "ci_cache_all.RData"))
+mask_path <- Sys.getenv("EXP06_MASK_PATH", unset = file.path(root_dir, "code", "analysis", "exp06", "input_pic", "average_face_mask.png"))
 if (!nzchar(cache_path) || !file.exists(cache_path)) stop("Set EXP06_CACHE_PATH to the authorized ci_cache_all.RData file.")
 if (!nzchar(mask_path) || !file.exists(mask_path)) stop("Set EXP06_MASK_PATH to the authorized average_face_mask.png file.")
 dir.create(output_dir, recursive = TRUE, showWarnings = FALSE)

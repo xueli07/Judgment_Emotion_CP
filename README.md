@@ -27,7 +27,9 @@ Experiments 1 and 2 tested whether a repeated continuous judgment phase changes 
 
 ## Reproducing the analyses
 
-Start with the relevant README files in `data/`, `code/`, and `environment/`. Run analyses from the repository root so scripts can resolve repository-relative paths. Experiments 1 and 2 use the processed tables in `data/processed/exp01` and `data/processed/exp02`; the HDDM analysis uses `data/processed/hddm/xab_trial_level_exp01_exp02.csv`. HDDM model fitting is computationally intensive. Full end-to-end execution of all analyses in a clean environment has not been completed. See [environment/REPRODUCIBILITY.md](environment/REPRODUCIBILITY.md) for the reproducibility record and known environment limitations.
+Start with the [analysis guide](code/analysis/README.md) for the Exp3 demo, required software, commands, and input and output paths. See the [software environment](environment/README.md) and [reproducibility record](environment/REPRODUCIBILITY.md) for version and validation details.
+
+For the Docker command and repository mount, see [Run HDDM in Docker](code/analysis/README.md#hddm).
 
 ## Data protection and restricted materials
 

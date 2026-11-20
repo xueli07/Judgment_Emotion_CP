@@ -16,16 +16,11 @@ find_project_dir <- function() {
   candidates <- unique(c(
     normalizePath(getwd(), winslash = "/", mustWork = FALSE),
     normalizePath(file.path(getwd(), ".."), winslash = "/", mustWork = FALSE),
-    normalizePath(file.path(getwd(), "..", ".."), winslash = "/", mustWork = FALSE),
-
+    normalizePath(file.path(getwd(), "..", ".."), winslash = "/", mustWork = FALSE)
   ))
 
   for (candidate in candidates) {
-    target <- file.path(
-      candidate,
-      "scripts", "HDDM", "output", "result", "formal_model",
-      "M4_v_judgment_x_pair", "Master_PPC_Simulations_Single.csv"
-    )
+    target <- file.path(candidate, "reference_outputs", "hddm", "tables", "Master_PPC_Simulations_Single.csv")
     if (file.exists(target)) {
       return(normalizePath(candidate, winslash = "/", mustWork = TRUE))
     }

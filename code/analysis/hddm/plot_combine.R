@@ -23,8 +23,8 @@ set.seed(123)
 
 # --- 1. Global Parameters & Directories ---
 script_arg <- grep("^--file=", commandArgs(trailingOnly = FALSE), value = TRUE)
-script_dir <- if (length(script_arg)) dirname(normalizePath(sub("^--file=", "", script_arg[1]))) else normalizePath(getwd())
-projectDir <- normalizePath(file.path(script_dir, "..", ".."))
+script_dir <- if (length(script_arg)) dirname(normalizePath(sub("^--file=", "", script_arg[1]))) else file.path(getwd(), "code", "analysis", "hddm")
+projectDir <- normalizePath(file.path(script_dir, "..", "..", ".."))
 setwd(projectDir)
 
 models_to_run <- c("M4_v_judgment_x_pair")
@@ -204,7 +204,7 @@ create_overlay_cp_plot <- function(obs_data, sim_data, dv_obs, dv_sim, cp_y_lab,
 
 # --- 4. Load & Prepare Empirical Data (Observed) ---
 cat("\n[INFO] Phase 1/3: Loading Empirical Data...\n")
-raw_data <- read_csv("data/xab_main_trial_level_combined.csv", show_col_types = FALSE)
+raw_data <- read_csv("data/processed/hddm/xab_trial_level_exp01_exp02.csv", show_col_types = FALSE)
 
 clean_data <- raw_data %>% filter(xab_rt <= 3.0)
 
@@ -226,7 +226,7 @@ obs_subject_data <- clean_data %>%
 for (model_name in models_to_run) {
   cat(sprintf("\n[INFO] Phase 2/3: Generating Overlay Plots for Model: %s\n", model_name))
   
-  sim_csv_path <- file.path(projectDir, "reference_outputs", "hddm", "result", "formal_model", model_name, sim_csv_filename)
+  sim_csv_path <- file.path(projectDir, "reference_outputs", "hddm", "tables", sim_csv_filename)
   
   if (!file.exists(sim_csv_path)) {
     cat(sprintf("[ERROR] Simulation data not found: %s. Skipping...\n", sim_csv_path))

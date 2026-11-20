@@ -29,7 +29,7 @@ The demo reads `data/processed/exp03/exp03_trial_data.csv` and writes four CSVs 
 
 With the supplied trial tables under `data/processed/`, run scripts `02` through `05` in order for each experiment: judgment fitting, quality control, XAB preparation, and XAB frequentist analysis. For example, start Experiment 1 with `Rscript --vanilla code/analysis/exp01/02_judgment_model_fitting.R`. Outputs and intermediate inputs are under `results/exp01/` and `results/exp02/`.
 
-Run `01_data_preprocessing.R` when regenerating trial tables from the public raw exports and inclusion files. It overwrites the supplied processed CSV by default. Use `OUTPUT_PATH` and `QC_DIR` to direct the outputs elsewhere. Exp1 reads the supplied processed CSV to preserve age and gender fields absent from its public raw exports. Set `DEMOGRAPHICS_PATH` to supply a different source for those fields.
+The Exp1–2 `01_data_preprocessing.R` scripts are retained as processing records. Their original participant exports and participant-inclusion tables are not distributed, so they cannot run from the public checkout alone. Start public reproduction at script 02. With separately held original inputs, OUTPUT_PATH and QC_DIR redirect preprocessing output, and Exp1 DEMOGRAPHICS_PATH supplies demographic fields; synchronize subsequent readers if outputs move.
 
 R packages include `tidyverse`, `readr`, `dplyr`, `purrr`, `minpack.lm`, `broom`, `scales`, `Rmisc`, `conflicted`, `car`, `rstatix`, and `ez`.
 
@@ -77,7 +77,7 @@ Rscript --vanilla code/analysis/hddm/figure4_exports_2026-09/scripts/export_fig4
 
 ## Execution details and dependencies
 
-Run R scripts from the repository root using `Rscript --vanilla <script-path>`. For Exp1 and Exp2, run `02_judgment_model_fitting.R`, `03_judgment_quality_control_descriptives.R`, `04_xab_data_preparation.R`, then `05_xab_frequentist_analysis.R` in their respective folders. Optional `01_data_preprocessing.R` runs first and overwrites processed CSVs by default; if OUTPUT_PATH changes, update downstream readers too. QC_DIR controls QC output; Exp1 DEMOGRAPHICS_PATH supplies demographic fields.
+Run R scripts from the repository root using `Rscript --vanilla <script-path>`. For Exp1 and Exp2, run `02_judgment_model_fitting.R`, `03_judgment_quality_control_descriptives.R`, `04_xab_data_preparation.R`, then `05_xab_frequentist_analysis.R` in their respective folders. Do not run `01_data_preprocessing.R` for public reproduction: its original inputs are not distributed.
 
 For Exp3–Exp5 run `01_model_comparison.R`, then `02_psychometric_analysis.R` from each experiment folder path. Inputs are `data/processed/exp0N/exp0N_trial_data.csv`; outputs are `results/exp0N/`. Dependencies below are scanned imports, not a single jointly validated environment. Install needed packages with `install.packages(c("package1", "package2"))`; consult source requirements for packages unavailable through your configured repository.
 
@@ -101,7 +101,7 @@ MATLAB uses Stat4CI random-field-theory cluster-level correction, not cluster-ba
 
 ## Using the code with your own data
 
-Use the supplied CSV headers and experiment-specific dictionaries in `data/raw/` as format references. Preserve missing-value handling, response coding, units, participant pairing and exclusions used by the script, or deliberately adapt them to your design. Arbitrary CSVs cannot be used without adaptation. Change each script's input/data path and results directory to avoid overwriting supplied or prior outputs. Model forms, thresholds, condition reference levels, intensity scales and exclusion rules need review for a different study. This is format guidance, not validation on external researchers' data.
+Use the supplied CSV headers and supplementary acquisition-column dictionaries in `docs/data_dictionaries/` as format references. Preserve missing-value handling, response coding, units, participant pairing and exclusions used by the script, or deliberately adapt them to your design. Arbitrary CSVs cannot be used without adaptation. Change each script's input/data path and results directory to avoid overwriting supplied or prior outputs. Model forms, thresholds, condition reference levels, intensity scales and exclusion rules need review for a different study. This is format guidance, not validation on external researchers' data.
 
 | Module | Input and required adaptations |
 | --- | --- |

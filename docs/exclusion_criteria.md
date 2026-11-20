@@ -7,5 +7,5 @@
 - Experiments 1 and 2: trials with reaction times below 200 ms and XAB trials above 10 s were excluded from behavioral analyses. HDDM used an upper limit of 3,000 ms.
 - Experiment 6: trials with log-transformed reaction times more than 2.5 SD from each participant's mean were removed.
 
-The participant inclusion table in each raw-data directory records public-file inclusion and exclusion status. Confirm all wording against the final accepted manuscript before release.
+Original participant exports and participant-inclusion tables are not distributed. The supplied processed trial tables are the entry point for public reproduction; downstream scripts apply the relevant task-specific trial filters.
 

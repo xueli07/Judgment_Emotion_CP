@@ -1,6 +1,6 @@
 # Judgment Experience Abolishes Categorical Perception of Facial Expressions
 
-This repository contains de-identified behavioral data, analysis code, and supporting documentation for six experiments reported in the associated manuscript.
+This repository contains de-identified, preprocessed trial-level behavioral data, analysis code, and supporting documentation for six experiments reported in the associated manuscript.
 
 ## Study overview
 
@@ -17,7 +17,6 @@ Experiments 1 and 2 tested whether a repeated continuous judgment phase changes 
 
 ## Repository layout
 
-- `data/raw/`: de-identified participant-level PsychoPy exports, inclusion tables, and column dictionaries.
 - `data/processed/`: analysis-ready trial-level tables and the combined HDDM input.
 - `code/analysis/`: R, MATLAB, Python, and HDDM analysis code.
 - `source_data/`: figure-to-data and figure-to-code index. Complete processed trial-level tables are supplied rather than duplicative panel-level tables.
@@ -52,7 +51,7 @@ Input: `data/processed/exp03/exp03_trial_data.csv`. Outputs in `results/exp03/de
 
 ## Reproducing the manuscript analyses
 
-Run R from the repository root. For Exp1–2 run scripts 02–05 in each experiment directory in order: judgment fitting, QC, XAB preparation, frequentist analysis. Optional 01_data_preprocessing.R regenerates processed CSVs and overwrites them by default. OUTPUT_PATH and QC_DIR redirect output; Exp1 DEMOGRAPHICS_PATH supplies demographic fields. Synchronize later readers if paths change.
+Run R from the repository root. For Exp1–2 run scripts 02–05 in each experiment directory in order: judgment fitting, QC, XAB preparation, frequentist analysis. The 01_data_preprocessing.R scripts are retained as processing records, but their original exports and inclusion tables are not distributed. Public reproduction starts at script 02.
 
 For Exp3–5 run `01_model_comparison.R` then `02_psychometric_analysis.R` in each experiment's directory path, using `Rscript --vanilla`. Included helpers require plyr. For Exp6 run `Rscript --vanilla code/analysis/exp06/01_reverse_correlation_analysis.R`. It uses the processed trials, distributed noise RData and matching mask; the average JPG supports PC1 visualization. The main script generates its cache under `results/exp06/`; the cache is not bundled. Optional table export: `Rscript --vanilla code/analysis/exp06/02_export_reference_outputs_from_cache.R`.
 
@@ -77,7 +76,7 @@ These use existing reference tables and trial data and write `results/figure4/`.
 
 ## Using the code with your own data
 
-Follow the independent [own-data guide](code/analysis/README.md#using-the-code-with-your-own-data), using the supplied processed CSVs and raw dictionaries as schemas. Change script input paths and redirect output; preserve participant pairing, response coding, missing values and units. The Exp3 demo input requires editing data_path (EXP03_OUTPUT_DIR only changes output). Its intensity transform is (emotion_level - 50) / 10 and must match your scale. HDDM INPUT_PATH/OUTPUT_DIR are in notebook 0; update later readers too. Exp6 requires your matching noise parameters and aligned images/mask. Review model assumptions, thresholds, condition reference levels and exclusions for the new study; arbitrary CSVs are not interchangeable.
+Follow the independent [own-data guide](code/analysis/README.md#using-the-code-with-your-own-data), using the supplied processed CSV headers as schemas and the preserved acquisition-column dictionaries as supplementary documentation. Change script input paths and redirect output; preserve participant pairing, response coding, missing values and units. The Exp3 demo input requires editing data_path (EXP03_OUTPUT_DIR only changes output). Its intensity transform is (emotion_level - 50) / 10 and must match your scale. HDDM INPUT_PATH/OUTPUT_DIR are in notebook 0; update later readers too. Exp6 requires your matching noise parameters and aligned images/mask. Review model assumptions, thresholds, condition reference levels and exclusions for the new study; arbitrary CSVs are not interchangeable.
 
 ## Outputs and runtime
 
@@ -97,7 +96,7 @@ The shared RData contains `base_faces$chinese` (512 × 512), `base_face_files$ch
 
 Individual noise-added stimulus face images, other original facial stimulus images, and morphed facial stimulus images are not distributed. Third-party materials and their derivatives remain subject to the applicable source permissions and license terms. Their inclusion does not grant additional rights or automatically license them under CC BY 4.0.
 
-Participant files use public IDs; the identification key is excluded. Legacy training/identification labels in Exp1–2 refer to judgment phases; see [raw-data documentation](data/raw/README.md).
+Only de-identified, preprocessed trial-level behavioral data are distributed; original participant exports and participant-inclusion tables are not distributed. Participant identifiers remain de-identified; the identification key is excluded. See [processed-data documentation](data/processed/README.md) and [column dictionaries](docs/data_dictionaries/README.md).
 
 ## Experimental task programs
 

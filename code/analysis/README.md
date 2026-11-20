@@ -116,7 +116,3 @@ Formal model subsets and all-model fits write to `formal_models`; the independen
 The Exp3 demo writes `AIC_model_comparison.csv`, `AIC_best_model_by_condition.csv`, `psychometric_parameters_by_participant.csv`, `PSE_slope_paired_tests.csv`, and `sessionInfo_exp03.txt`. Its approximately three-second runtime excludes installation and covers table export only, not full Exp3 analysis or HDDM.
 
 See [verification scope](../../environment/REPRODUCIBILITY.md) and [materials](../../docs/stimulus_availability.md).
-
-### Filename case on case-sensitive systems
-
-The current checkout contains `input_pic/exp06_noise_seed.Rdata`, while the R script requests `exp06_noise_seed.RData`. This capitalization differs. Before running on a case-sensitive filesystem, make the resource filename match the script exactly; this documentation update does not rename the resource or edit the code.

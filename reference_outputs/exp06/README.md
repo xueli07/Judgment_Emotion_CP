@@ -1,7 +1,19 @@
 # Experiment 6 reference outputs
 
-These numerical outputs support the informational-value and individual-level robustness analyses for the reverse-correlation experiment.
+`Infoval-results.csv` contains results of the informational-value comparison. `filtered_by_participant.csv` and `nofiltered_by_participant.csv` contain trial-level analytical variables and participant fields.
 
-`filtered_by_participant.csv` and `nofiltered_by_participant.csv` retain pseudonymous participant IDs, participant demographic fields, and trial-level analytical variables, consistent with the prior public package.
+The cache export regenerates ten numerical tables covering group CI similarity, PCA and its association with intensity, the permutation test, and jackknife and mixed-model summaries. From the repository root:
 
-`Infoval-results.csv` supports the informational-value comparison. The duplicate `Infovalpost-results.csv` was removed because it was byte-identical. `02_export_reference_outputs_from_cache.R` generated the PCA, permutation, LME, and jackknife numerical summaries from locally authorized restricted CI-cache and mask assets; neither restricted input is included here.
+```sh
+Rscript --vanilla code/analysis/exp06/02_export_reference_outputs_from_cache.R
+```
+
+| Input or output | Default local path | Override |
+| --- | --- | --- |
+| CI cache | `reference_outputs/exp06/ci_cache_all.RData` | `EXP06_CACHE_PATH` |
+| Face mask | `code/analysis/exp06/input_pic/average_face_mask.png` | `EXP06_MASK_PATH` |
+| Output folder | `results/exp06/cache_export/` | `EXP06_OUTPUT_DIR` |
+
+Supply the matching local input files before running the export. The cache is stored separately from the Git-tracked files.
+
+R packages: `dplyr`, `readr`, `purrr`, `lme4`, `lmerTest`, `combinat`, and `png`. The export was tested with R 4.5.0 on Windows. See [session information](sessionInfo_exp06_export.txt) for recorded package versions.

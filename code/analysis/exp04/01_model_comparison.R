@@ -2,9 +2,9 @@ rm(list = ls())
 
 # Set current directory
 script_arg <- grep("^--file=", commandArgs(trailingOnly = FALSE), value = TRUE)
-script_dir <- if (length(script_arg)) dirname(normalizePath(sub("^--file=", "", script_arg[1]))) else normalizePath(getwd())
-package_root <- normalizePath(file.path(script_dir, "..", ".."))
-dataDir <- file.path(package_root, "data", "exp04")
+script_dir <- if (length(script_arg)) dirname(normalizePath(sub("^--file=", "", script_arg[1]))) else file.path(getwd(), "code", "analysis", "exp04")
+package_root <- normalizePath(file.path(script_dir, "..", "..", ".."))
+dataDir <- file.path(package_root, "data", "processed", "exp04")
 analysisDir <- file.path(package_root, "results", "exp04")
 dir.create(analysisDir, recursive = TRUE, showWarnings = FALSE)
 setwd(analysisDir)

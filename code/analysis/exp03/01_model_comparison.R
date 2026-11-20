@@ -1,9 +1,9 @@
 rm(list = ls())
 
 script_arg <- grep("^--file=", commandArgs(trailingOnly = FALSE), value = TRUE)
-script_dir <- if (length(script_arg)) dirname(normalizePath(sub("^--file=", "", script_arg[1]))) else normalizePath(getwd())
-package_root <- normalizePath(file.path(script_dir, "..", ".."))
-dataDir <- file.path(package_root, "data", "exp03")
+script_dir <- if (length(script_arg)) dirname(normalizePath(sub("^--file=", "", script_arg[1]))) else file.path(getwd(), "code", "analysis", "exp03")
+package_root <- normalizePath(file.path(script_dir, "..", "..", ".."))
+dataDir <- file.path(package_root, "data", "processed", "exp03")
 analysisDir <- file.path(package_root, "results", "exp03")
 dir.create(analysisDir, recursive = TRUE, showWarnings = FALSE)
 setwd(analysisDir)
@@ -14,8 +14,8 @@ library(reshape2)
 library(gridExtra)
 library(dplyr)
 library(RColorBrewer)
-scriptDir <- dirname(rstudioapi::getSourceEditorContext()$path)
-source(paste(scriptDir, "helper_functions.R",sep = "\\"))
+
+source(file.path(script_dir, "helper_functions.R"))
 
 plot_color = c( "#F28E8E", "#7FB3FF")
 ##################################
@@ -58,7 +58,7 @@ data_final_stim <- data_final_stim[order(data_final_stim$face_stim,
 # Do a descriptive plot
 
 # Requires ID variable for summarySEwithin - CG
-datac <- summarySEwithin(data_final_subj, measurevar="resp", withinvars=c("emotion_level","block_name"), idvar="participant") 
+datac <- summarySEwithin(data_final_subj, measurevar="resp", withinvars=c("emotion_level","block_name"), idvar="participant")
 datac
 str(data_final_subj)
 

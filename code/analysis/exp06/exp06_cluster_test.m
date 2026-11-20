@@ -224,13 +224,6 @@ for s = 1:nContinuous
     matCont(s,:) = temp(validIdx);
 end
 fprintf('matCont size: %d subjects x %d pixels\n', size(matCont,1), size(matCont,2));
-try
-    ICCs_Cont = compute_icc_matrix(matCont);
-    fprintf('Continuous task ICC(2,1)=%.3f (ICC1=%.3f, ICC3=%.3f)\n', ...
-        ICCs_Cont.ICC2, ICCs_Cont.ICC1, ICCs_Cont.ICC3);
-catch
-    warning('compute_icc_matrix function not found or failed. Skipping ICC.');
-end
 
 % Construct matrix for Categorical task
 matCat = zeros(nCategorical, numel(validIdx));
@@ -239,13 +232,7 @@ for s = 1:nCategorical
     matCat(s,:) = temp(validIdx);
 end
 fprintf('matCat size: %d subjects x %d pixels\n', size(matCat,1), size(matCat,2));
-try
-    ICCs_Cat = compute_icc_matrix(matCat);
-    fprintf('Categorical task ICC(2,1)=%.3f (ICC1=%.3f, ICC3=%.3f)\n', ...
-        ICCs_Cat.ICC2, ICCs_Cat.ICC1, ICCs_Cat.ICC3);
-catch
-    warning('compute_icc_matrix function not found or failed. Skipping ICC.');
-end
+
 
 %--------------------------------------------------------------------------
 % Step 5: Statistical Analysis (One-sample t-test)

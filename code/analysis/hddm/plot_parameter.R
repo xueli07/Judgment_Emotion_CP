@@ -13,17 +13,17 @@ library(scales)
 
 # --- 1. Directory Configuration & Data Loading ---
 script_arg <- grep("^--file=", commandArgs(trailingOnly = FALSE), value = TRUE)
-script_dir <- if (length(script_arg)) dirname(normalizePath(sub("^--file=", "", script_arg[1]))) else normalizePath(getwd())
-package_root <- normalizePath(file.path(script_dir, "..", ".."))
-base_dir <- file.path(package_root, "reference_outputs", "hddm", "result", "formal_model")
+script_dir <- if (length(script_arg)) dirname(normalizePath(sub("^--file=", "", script_arg[1]))) else file.path(getwd(), "code", "analysis", "hddm")
+package_root <- normalizePath(file.path(script_dir, "..", "..", ".."))
+base_dir <- file.path(package_root, "reference_outputs", "hddm", "tables")
 setwd(base_dir)
 
 # Create a dedicated directory for parameter plots
-plots_dir <- file.path("M4_v_judgment_x_pair", "plots_parameters")
+plots_dir <- file.path(package_root, "results", "hddm", "plots_parameters")
 dir.create(plots_dir, showWarnings = FALSE, recursive = TRUE)
 
 # Load posterior parameter data exported from the Python pipeline
-csv_file <- file.path("M4_v_judgment_x_pair", "M4_v_judgment_x_pair_v_plot.csv")
+csv_file <- "M4_v_judgment_x_pair_v_plot.csv"
 param_data <- read_csv(csv_file, show_col_types = FALSE)
 
 # Enforce factor levels to ensure correct plotting order on the x-axis and legend

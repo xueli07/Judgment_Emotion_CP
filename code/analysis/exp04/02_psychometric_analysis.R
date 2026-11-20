@@ -2,9 +2,9 @@ rm(list = ls())
 
 # Set current directory
 script_arg <- grep("^--file=", commandArgs(trailingOnly = FALSE), value = TRUE)
-script_dir <- if (length(script_arg)) dirname(normalizePath(sub("^--file=", "", script_arg[1]))) else normalizePath(getwd())
-package_root <- normalizePath(file.path(script_dir, "..", ".."))
-dataDir <- file.path(package_root, "data", "exp04")
+script_dir <- if (length(script_arg)) dirname(normalizePath(sub("^--file=", "", script_arg[1]))) else file.path(getwd(), "code", "analysis", "exp04")
+package_root <- normalizePath(file.path(script_dir, "..", "..", ".."))
+dataDir <- file.path(package_root, "data", "processed", "exp04")
 analysisDir <- file.path(package_root, "results", "exp04")
 dir.create(analysisDir, recursive = TRUE, showWarnings = FALSE)
 setwd(analysisDir)
@@ -25,8 +25,8 @@ library(tidyverse)
 library(car)
 library(ggpubr)
 
-scriptDir <- dirname(rstudioapi::getSourceEditorContext()$path)
-source(paste(scriptDir, "helper_functions.R", sep = "\\"))
+
+source(file.path(script_dir, "helper_functions.R"))
 
 plot_color = c("#F28E8E", "#7FB3FF")
 
@@ -175,7 +175,7 @@ plot_psychometric_4cond <- function(data, model, model_type, cond_label, partici
     coord_cartesian(clip = "off")
   
   ggsave(
-    paste0("fig7_onebyone\\fig7_emotion_categorization_", cond_label, "_", participant_id, ".jpg"),
+    file.path("fig7_onebyone", paste0("fig7_emotion_categorization_", cond_label, "_", participant_id, ".jpg")),
     p, width = 4.6, height = 4, dpi = 150
   )
 }

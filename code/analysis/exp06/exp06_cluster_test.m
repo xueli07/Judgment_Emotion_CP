@@ -6,6 +6,12 @@
 %--------------------------------------------------------------------------
 % User Configuration Parameters
 %--------------------------------------------------------------------------
+% Method clarification:
+% This analysis uses cluster-level correction based on random field theory,
+% implemented with Stat4Ci, rather than cluster-based permutation testing.
+% The submitted manuscript incorrectly describes this procedure as
+% "cluster-based permutation testing". This wording will be corrected
+% in the revised manuscript; the analysis itself is unchanged.
 addpath(genpath('subfunction'));
 
 % Set basic parameters
@@ -77,7 +83,7 @@ try
     axis image;
     pause(1);  % Brief display for user confirmation
 catch ME
-    warning('PublicRepository:MaskImport', 'Failed to import mask image. Using default boundary mask: %s', ME.message);
+    warning('Failed to import mask image. Using default boundary mask: %s', ME.message);
     % Create default boundary mask
     vectMask = find(bg_mask == 1);  
     faceMask = find(bg_mask == 0);
@@ -232,7 +238,6 @@ for s = 1:nCategorical
     matCat(s,:) = temp(validIdx);
 end
 fprintf('matCat size: %d subjects x %d pixels\n', size(matCat,1), size(matCat,2));
-
 
 %--------------------------------------------------------------------------
 % Step 5: Statistical Analysis (One-sample t-test)
